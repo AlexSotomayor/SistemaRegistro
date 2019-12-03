@@ -15,17 +15,16 @@
     </head>
     <body>
         <div>
-            
-                <div id="principal">
-                    <%@include  file="Menu.jsp" %>
-            <form action="GuardarPredio" method="POST">        
+            <div id="principal">
+                <%@include  file="Menu.jsp" %>
+                <form action="GuardarPredio" method="POST">        
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
                             <td colspan="2" align="center">
                                 <h3>Ingreso Predio</h3>
                             </td>
                         </tr>
-                        
+
                         <td><div class="">Nombre</div></td>
                         <td> 
                             <input type="text" name="Nombre" class="form-control" style="width: 200px">
@@ -57,7 +56,7 @@
                                 <input type="text" name="coordenadaUTME" class="form-control" style="width: 200px" autocomplete="off">
                             </td>
                         </tr>
-                        
+
                         <tr valign="top" style="width: 200px"> 
                             <td>Comuna:</td>
                             <td>
@@ -71,21 +70,20 @@
                                 </select>
                             </td>
                         </tr>
-                       
-                        
+
+
                         <td colspan="2" align="center">
-                                <button class="btn btn-primary" type="button" >Guardar</button> 
+                            <button class="btn btn-primary" type="button" >Guardar</button> 
                         </td>       
-                        
-                
+
+
                         <tr> 
                             <td colspan="2" align="center">
                                 <a href="DatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
                         </tr>
                     </table>   
-            </form>        
-                </div>
-            
+                </form>        
+            </div>
         </div>
-
+    </body>
 </html>

@@ -88,7 +88,4 @@ public class conexion {
         return this.conexion.createStatement().executeQuery(query);
     }
 
-    public void ConectarBaseDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

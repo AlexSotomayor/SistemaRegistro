@@ -84,16 +84,16 @@ public class GuardarPredio extends HttpServlet {
         
                 
         HttpSession sesion = request.getSession();
-            String nivel;
-            nivel = sesion.getAttribute("Id_Usuario").toString();
+            String id_usuario;
+            id_usuario = sesion.getAttribute("Id_Usuario").toString();
         
         conexion cnx = new conexion();
         boolean estado = false;
         
-        String query = "INSERT INTO predio "+
+        String query = "INSERT INTO Predio "+
                        "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
                        "values "+
-                       "( '"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
+                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+id_usuario+"')";
         System.out.println(query);
         try {
             cnx.getConnection();
