@@ -15,9 +15,10 @@
     </head>
     <body>
         <div>
-            <form action="GuardarPredio" method="POST">
+            
                 <div id="principal">
                     <%@include  file="Menu.jsp" %>
+            <form action="GuardarPredio" method="POST">        
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
                             <td colspan="2" align="center">
@@ -25,35 +26,35 @@
                             </td>
                         </tr>
                         
-                        <td><div class="tituloChico">Nombre</div></td>
+                        <td><div class="">Nombre</div></td>
                         <td> 
-                            <input type="text" name="Nombre" class="autorut" style="width: 200px" autocomplete="off">
+                            <input type="text" name="Nombre" class="form-control" style="width: 200px">
                         </td>
                         </tr>
 
                         <tr>
                             <td><div class="tituloChico">Superficie</div></td>
                             <td> 
-                                <input type="text" name="Superficie" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                                <input type="text" name="Superficie" class="form-control" style="width: 200px" autocomplete="off">    </td>
                         </tr>
 
                         <tr>
                             <td><div class="tituloChico">Rol Avalúo</div></td>
                             <td> 
-                                <input type="text" name="rolAvaluo" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                                <input type="text" name="rolAvaluo" class="form-control" style="width: 200px" autocomplete="off">    </td>
                         </tr>
 
                         <tr>
                             <td><div class="tituloChico">Coordenada UTM N</div></td>
                             <td> 
-                                <input type="text" name="coordenadaUTMN" class="autorut" style="width: 200px" autocomplete="off">
+                                <input type="text" name="coordenadaUTMN" class="form-control" style="width: 200px" autocomplete="off">
                             </td>
                         </tr>
 
                         <tr>
                             <td><div class="tituloChico">Coordenada UTM E</div></td>
                             <td> 
-                                <input type="text" name="coordenadaUTME" class="autorut" style="width: 200px" autocomplete="off">
+                                <input type="text" name="coordenadaUTME" class="form-control" style="width: 200px" autocomplete="off">
                             </td>
                         </tr>
                         
@@ -70,20 +71,21 @@
                                 </select>
                             </td>
                         </tr>
+                       
                         
-                        <br>
+                        <td colspan="2" align="center">
+                                <button class="btn btn-primary" type="button" >Guardar</button> 
+                        </td>       
+                        
+                
                         <tr> 
                             <td colspan="2" align="center">
-                                <button class="button10" type="button" onclick="submit()">Guardar</button>    </td>
-                        </tr>
-                        <tr> 
-                            <td colspan="2" align="center">
-                                <a href="DatosPropietario.jsp"><button class="button10" type="button" onclick="submit()">Continuar</button></a>    </td>
+                                <a href="DatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
                         </tr>
                     </table>   
-                    
+            </form>        
                 </div>
-            </form>
+            
         </div>
 
 </html>

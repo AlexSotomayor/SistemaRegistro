@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cl.aiep.controller;
 
 import cl.aiep.conexion.conexion;
@@ -11,7 +15,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author Alex
+ */
 public class GuardarPredio extends HttpServlet {
 
     /**
@@ -72,15 +81,19 @@ public class GuardarPredio extends HttpServlet {
         String coordenadan  =     request.getParameter("coordenadaUTMN");
         String coordenadae  =     request.getParameter("coordenadaUTME");
         String comuna       =     request.getParameter("Comuna");
-        String usuario       =     request.getParameter("txtUsuario");
+        
+                
+        HttpSession sesion = request.getSession();
+            String nivel;
+            nivel = sesion.getAttribute("Id_Usuario").toString();
         
         conexion cnx = new conexion();
         boolean estado = false;
         
-        String query = "INSERT INTO Predio "+
+        String query = "INSERT INTO predio "+
                        "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
                        "values "+
-                       "( '"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+usuario+"')";
+                       "( '"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
         System.out.println(query);
         try {
             cnx.getConnection();

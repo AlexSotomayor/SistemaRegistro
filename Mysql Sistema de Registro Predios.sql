@@ -6,7 +6,8 @@ create table Usuario(
 	Nombre				    VARCHAR(50),
 	Rut					    VARCHAR(12),
 	Clave				    VARCHAR(10),
-	Nivel		            INT
+	Nivel		            INT,
+    Tipo					varchar(20)
 );
 
 create table Region(
@@ -44,17 +45,17 @@ create table Predio(
 	Id_Comuna			    INT,
     FOREIGN KEY (Id_Comuna) REFERENCES Comuna (Id_Comuna),
 	Id_Usuario			    INT,
-    FOREIGN KEY (Id_Usuario) REFERENCES Usuario (Id_Usuario)
+    FOREIGN KEY (Id_Usuario)REFERENCES Usuario (Id_Usuario)
 );
 
 create table Propietario(
 	Id_RutPropietario	    INT PRIMARY KEY,
-	Nombres				VARCHAR(50), 
-	ApellidoPaterno		VARCHAR(50) NOT NULL,
-	ApellidoMaterno		VARCHAR(50), 
-	Direccion			VARCHAR(50) NOT NULL,
-	Telefono            INT,
-	CorreoElectronico	VARCHAR(90)
+	Nombres					VARCHAR(50), 
+	ApellidoPaterno			VARCHAR(50) NOT NULL,
+	ApellidoMaterno			VARCHAR(50), 
+	Direccion				VARCHAR(50) NOT NULL,
+	Telefono           	    INT,
+	CorreoElectronico		VARCHAR(90)
 );
 
 create table PropietarioPredio(
@@ -79,12 +80,11 @@ create table CarpetaPredial(
     FOREIGN KEY (Id_Usuario) REFERENCES Usuario (Id_Usuario)
 );
 
-
-
 ----------
 select * from Usuario;
-INSERT INTO `sistemaderegistro`.`Usuario` (`Nombre`, `Rut`, `Clave`, `Nivel`)VALUES ('Marta', '10805087k', '1234', 1),
-                                                                                    ('Alex',  '184930005', '3925', 2);
+INSERT INTO `sistemaderegistro`.`Usuario` (`Nombre`, `Rut`, `Clave`, `Nivel`, `Tipo`)VALUES ('Alex',  '145847571', '1234', 1, 'Administrador'),
+                                                                                    ('Marta', '10805078k', '1235', 2, 'Administrativo'),
+                                                                                    ('HILDA OJEDA' ,'33239629', '1111', 3, 'Usuario Externo')
 
 ----------
 select * from Region;
@@ -148,7 +148,8 @@ FROM   CarpetaPredial
   
 select * from VW_CARPETA_PREDIAL;
 
-----Vista Predio
+----
+select * from predio;
 
 CREATE VIEW VW_Vista_Predio
 AS
@@ -163,9 +164,9 @@ FROM   Predio
 
 SELECT * FROM VW_Vista_Predio;
 
------Vista Propietario
+-----
 
-select * from Propietario
+select * from Propietario;
 
 select * from TipoPlanDeManejo;
 INSERT INTO `sistemaderegistro`.`TipoPlanDeManejo` (`EstudioTecnico`, `MarcoLegal`) 
@@ -199,9 +200,10 @@ VALUES  ('NORMA DE MANEJO EUCALIPTUS',  'D.L.701'),
 
 SELECT * FROM PREDIO;
 INSERT INTO `sistemaderegistro`.`PREDIO` (`Nombre`, `SuperficieTotal`, `Rol_Avaluo`, `COORDUTMN`, `COORDUTME`, `Id_Comuna`, `Id_Usuario`) 
-			VALUES ('PUQUITRAHUE',            8.42,'340-24',    5468931,   624687,  3, 1),
-				   ('LOTE 35 FUNDO QUIHUE',  45.50,'4219-637',   611000,  5517000,  6, 1),
-				   ('LOTE A UNO PUTRIHUE',   18.67,'346-445',    635500,  5479000,  2, 1);
+			VALUES ('PUQUITRAHUE',            8.42,'340-24',    5468931,   624687,  3, 2),
+				   ('LOTE 35 FUNDO QUIHUE',  45.50,'4219-637',   611000,  5517000,  6, 2),
+				   ('LOTE A UNO PUTRIHUE',   18.67,'346-445',    635500,  5479000,  2, 2);
+                   
 
 
 SELECT * FROM Propietario;
@@ -212,8 +214,8 @@ VALUES (781286605,'','AGRICOLA Y FORESTAL SAN JOAQUIN LTDA','','MATTA 595 OF.5 O
  
 
 SELECT *FROM CarpetaPredial;
-INSERT INTO `sistemaderegistro`.`CarpetaPredial` (`NumeroResolucion`, `FechaResolucion`, `Infraccion`, `EstadoResolucion`, `NumeroCarpeta`, `Id_Predio`, `Id_TipoPlanDeManejo`, `Id_Usuario`)
-VALUES ('24/32-102/16',   '2016-02-19', 'Sin infracción',  'Aprobada',     365,  1, 5,  1),
-       ('39/110-102/19',  '2019-03-26', 'Sin infracción',  'Aprobada',    1761,  2, 8,  1),
-       ('244/24-102/19',  '2019-10-30', 'Sin infracción',  'Aprobada',     373,  3, 1,  1);
+INSERT INTO `sistemaderegistro`.`CarpetaPredial`(`NumeroResolucion`,`FechaResolucion`, `Infraccion`,`EstadoResolucion`, `NumeroCarpeta`, `Id_Predio`, `Id_TipoPlanDeManejo`, `Id_Usuario`)
+VALUES ('24/32-102/16',            '2016-02-19', 'Sin infracción',  'Aprobada',     365,  1, 5,  2),
+       ('39/110-102/19',           '2019-03-26', 'Sin infracción',  'Aprobada',    1761,  2, 8,  2),
+       ('244/24-102/19',           '2019-10-30', 'Sin infracción',  'Aprobada',     373,  3, 1,  2);
 

@@ -77,6 +77,12 @@
                         <td colspan="2" align="center">
                             <button class="button10" type="button" onclick="submit()">Guardar</button>    </td>
                     </tr>
+                    
+                    <tr> 
+                        <td colspan="2" align="center">
+                            <a href="CarpetaPredial.jsp"><button class="button10" type="button" onclick="submit()">Continuar</button></a></td>
+                    </tr>
+                    
                 </table>
               
             </div>

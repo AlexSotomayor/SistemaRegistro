@@ -45,7 +45,7 @@
                         </tr>
                         <tr> 
                             <td colspan="2" align="center">
-                                <button class="button10" type="Submit" name="btnIngresar" onclick="submit()">Ingresar</button>    </td>
+                                <button class="btn btn-success" type="Submit" name="btnIngresar" onclick="submit()">Ingresar</button>    </td>
                         </tr>
                     </table>
             </div>
@@ -53,14 +53,14 @@
     </form>   
 
     <%
-        conexion op = new conexion();
+        conexion cnx = new conexion();
         if (request.getParameter("btnIngresar") != null) {
             String nombre = request.getParameter("txtUsuario");
             String contra = request.getParameter("txtPassword");
 
             HttpSession sesion = request.getSession();
 
-            switch (op.loguear(nombre, contra)) {
+            switch (cnx.loguear(nombre, contra)) {
                 case 1:
                     sesion.setAttribute("user", nombre);
                     sesion.setAttribute("Nivel", "1");
