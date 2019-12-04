@@ -17,7 +17,7 @@
         <div>
             <div id="principal">
                 <%@include  file="Menu.jsp" %>
-                <form action="GuardarPredio" method="POST">        
+                <form action="IngresoPredio" method="POST">        
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
                             <td colspan="2" align="center">
@@ -73,7 +73,7 @@
 
 
                         <td colspan="2" align="center">
-                            <button class="btn btn-primary" type="button" >Guardar</button> 
+                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
                         </td>       
 
 

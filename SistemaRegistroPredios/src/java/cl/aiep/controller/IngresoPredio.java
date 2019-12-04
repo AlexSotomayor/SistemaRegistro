@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Alex
  */
-public class GuardarPredio extends HttpServlet {
+public class IngresoPredio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class GuardarPredio extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GuardarPredio</title>");            
+            out.println("<title>Servlet IngresoPredio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GuardarPredio at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet IngresoPredio at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -84,8 +84,8 @@ public class GuardarPredio extends HttpServlet {
         
                 
         HttpSession sesion = request.getSession();
-            String id_usuario;
-            id_usuario = sesion.getAttribute("Id_Usuario").toString();
+            String nivel;
+            nivel = sesion.getAttribute("Nivel").toString();
         
         conexion cnx = new conexion();
         boolean estado = false;
@@ -93,13 +93,13 @@ public class GuardarPredio extends HttpServlet {
         String query = "INSERT INTO Predio "+
                        "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
                        "values "+
-                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+id_usuario+"')";
+                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
         System.out.println(query);
         try {
             cnx.getConnection();
             estado =  cnx.guardarDatos(query);
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPredio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngresoPredio.class.getName()).log(Level.SEVERE, null, ex);
         } 
             response.sendRedirect("IngresoPredial.jsp");
     }
