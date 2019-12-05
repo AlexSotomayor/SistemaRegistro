@@ -6,7 +6,6 @@
 <%
     conexion cnx = new conexion();
     cnx.getConnection();
-
 %>
 <!DOCTYPE html>
 <html>
@@ -17,7 +16,7 @@
     <body>
         <form action="" method="POST">
 
-            <%@include  file="Menu.jsp" %>
+            <%@include  file="MenuAdministrativo.jsp" %>
             <table border="0" cellspacing="0" cellpadding="2" align="center">
                 <tr> 
                     <td colspan="2" align="center"><br>

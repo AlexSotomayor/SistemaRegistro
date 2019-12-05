@@ -70,13 +70,13 @@
                 case 2:
                     sesion.setAttribute("user", nombre);
                     sesion.setAttribute("Nivel", "2");
-                    response.sendRedirect("Menu.jsp");
+                    response.sendRedirect("MenuAdministrativo.jsp");
                     break;
 
                 case 3:
                     sesion.setAttribute("user", nombre);
                     sesion.setAttribute("Nivel", "3");
-                    response.sendRedirect("ConsultasPredio.jsp");
+                    response.sendRedirect("MenuConsultasPredio.jsp");
                     break;
 
                 default:

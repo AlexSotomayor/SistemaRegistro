@@ -22,7 +22,7 @@
         <div>
             <form action="GuardarPropietarios" method="POST">
           <div id="principal">
-                <%@include  file="Menu.jsp" %>
+              <%@include  file="MenuAdministrativo.jsp" %>
                 <table border="0" cellspacing="0" cellpadding="2" align="center">
                     <tr> 
                         <td colspan="2" align="center">
