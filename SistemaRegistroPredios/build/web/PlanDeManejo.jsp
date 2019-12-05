@@ -22,14 +22,14 @@
                 <table border="0" cellspacing="0" cellpadding="2" align="center">
                     <tr> 
                         <td colspan="2" align="center">
-                            <h3>Registro Plan de Manejo</h3>
+                            <h3>Registro Plan de Manejo:</h3>
                         </td>
                     </tr>
 
-                    <tr valign="top" class="tituloChico"> 
+                    <tr valign="top"> 
                         <td>Estudio Técnico:</td>
                         <td>
-                            <select name="Comuna">
+                            <select name="Comuna" style="width: 250px" class="form-control">
                                 <option  value='-1'>Seleccione tipo de estudio</option>
                                 <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_TipoPlanDeManejo,EstudioTecnico FROM TipoPlanDeManejo");
                                     while (puntero.next()) {
@@ -43,7 +43,7 @@
                     <tr>
                         <td><div class="tituloChico">Marco Legal:</div></td>
                         <td> 
-                            <input class="tituloChico" type="text" name="marcolegal" class="autorut" style="width: 200px" autocomplete="off">
+                            <input type="text" name="marcolegal" class="form-control" style="width: 200px" autocomplete="off">
                         </td>
                     </tr>
                     

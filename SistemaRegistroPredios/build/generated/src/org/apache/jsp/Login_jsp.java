@@ -56,61 +56,37 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Inicio de sesion</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("\n");
+      out.write("        \n");
       out.write("        <div class=\"container mt-5 col-lg-4\">\n");
       out.write("            <div class=\"card col-sm-10\">\n");
       out.write("                <div align=\"center\" class=\"tituloPagina\">Ingreso al Sistema</div> \n");
       out.write("                <div align=\"center\" class=\"tituloChico\"></div> \n");
       out.write("                <form action=\"Login.jsp\" method=\"POST\">\n");
       out.write("\n");
-      out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"text\" name=\"txtUsuario\" class=\"form-control\" placeholder=\"Nombre Usuario\">\n");
-      out.write("                        <span class=\"glyphicon glyphicon-envelope form-control-feedback\"></span>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"form-group has-feedback\">\n");
-      out.write("                        <input type=\"password\"  name=\"txtPassword\" class=\"form-control\" placeholder=\"Contraseña\">\n");
-      out.write("                        <span class=\"glyphicon glyphicon-lock form-control-feedback\"></span>\n");
-      out.write("                    </div>\n");
-      out.write("                    ");
-
-                        if (request.getParameter("error") != null) {
-
-                            String clase = (request.getParameter("hack") != null) ? "danger" : "warning";
-                            String mensaje = (request.getParameter("hack") != null) ? "Eres un hacker fome" : "No existe un usuario con estas credenciales";
-                    
-      out.write("\n");
-      out.write("                    <div class=\"alert alert-");
-      out.print(clase);
-      out.write(" alert-dismissible\">\n");
-      out.write("                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button>\n");
-      out.write("                        <h4><i class=\"icon fa fa-warning\"></i> Error de Acceso!</h4>\n");
-      out.write("                        ");
-      out.print(mensaje);
-      out.write("\n");
-      out.write("                    </div>  \n");
-      out.write("                    ");
-
-                        }
-                    
-      out.write("\n");
-      out.write("                    <div class=\"row\">\n");
-      out.write("                        <div class=\"col-xs-8\">\n");
-      out.write("                            <div class=\"checkbox icheck\">\n");
-      out.write("                                <label>\n");
-      out.write("                                    <input type=\"checkbox\">Recordar mi contraseña\n");
-      out.write("                                </label>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                        <!-- /.col -->\n");
-      out.write("                        <div class=\"col-xs-4\">\n");
-      out.write("                            <button type=\"submit\" class=\"btn btn-primary btn-block btn-flat\">Acceder</button>\n");
-      out.write("                        </div>\n");
-      out.write("                        <!-- /.col -->\n");
-      out.write("                    </div>\n");
-      out.write("\n");
-      out.write("                    <td colspan=\"2\" align=\"center\">\n");
-      out.write("                        <button class=\"btn btn-success\" type=\"Submit\" name=\"btnIngresar\" onclick=\"submit()\">Ingresar</button>    </td>\n");
-      out.write("                    </tr>\n");
+      out.write("                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\" align=\"center\">\n");
+      out.write("                        <tr> \n");
+      out.write("                            <td colspan=\"2\" align=\"center\">\n");
+      out.write("                                <b></b>\n");
+      out.write("                            </td>\n");
+      out.write("                        </tr>\n");
+      out.write("                        <tr>\n");
+      out.write("                            <td><div class=\"tituloChico\">N o m b r e:</div></td>\n");
+      out.write("                            <td> \n");
+      out.write("                                <input type=\"text\" name=\"txtUsuario\" class=\"autorut\" style=\"width: 150px\" autocomplete=\"off\">    </td>\n");
+      out.write("                        </tr>\n");
+      out.write("                        <tr> \n");
+      out.write("                            <td>\n");
+      out.write("                                <div class=\"tituloChico\">C o n t r a s e ñ a:\n");
+      out.write("                                </div>\n");
+      out.write("                            </td>\n");
+      out.write("                            <td height=\"49\"> \n");
+      out.write("                                <input type=\"password\" name=\"txtPassword\" style=\"width: 150px\" autocomplete=\"off\">\n");
+      out.write("                            </td>\n");
+      out.write("                        </tr>\n");
+      out.write("                        <tr> \n");
+      out.write("                            <td colspan=\"2\" align=\"center\">\n");
+      out.write("                                <button class=\"btn btn-success\" type=\"Submit\" name=\"btnIngresar\" onclick=\"submit()\">Ingresar</button>    </td>\n");
+      out.write("                        </tr>\n");
       out.write("                    </table>\n");
       out.write("            </div>\n");
       out.write("        </div>    \n");
@@ -148,6 +124,10 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
                     out.write("Usuario no existe, o contraseña inválida");
                     break;
             }
+        }
+        
+        if(request.getParameter("cerrar")!=null){
+            session.invalidate();
         }
     
       out.write("\n");

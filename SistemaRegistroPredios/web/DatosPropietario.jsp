@@ -31,46 +31,46 @@
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Rut</div></td>
+                        <td><div class="tituloChico">Rut:</div></td>
                         <td> 
-                            <input type="text" name="Rut" class="autorut" style="width: 200px" autocomplete="off">    
+                            <input type="text" name="Rut" class="form-control" style="width: 200px" autocomplete="off">    
                         </td>
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Nombre</div></td>
+                        <td><div class="tituloChico">Nombre:</div></td>
                         <td> 
-                            <input type="text" name="Nombre" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="Nombre" class="form-control" style="width: 200px" autocomplete="off">    </td>
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Apellido Paterno</div></td>
+                        <td><div class="tituloChico">Apellido Paterno:</div></td>
                         <td> 
-                            <input type="text" name="ApellidoPaterno" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="ApellidoPaterno" class="form-control" style="width: 200px" autocomplete="off">    </td>
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Apellido Materno</div></td>
+                        <td><div class="tituloChico">Apellido Materno:</div></td>
                         <td> 
-                            <input type="text" name="ApellidoMaterno" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="ApellidoMaterno" class="form-control" style="width: 200px" autocomplete="off">    </td>
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Dirección</div></td>
+                        <td><div class="tituloChico">Dirección:</div></td>
                         <td> 
-                            <input type="text" name="Direccion" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="Direccion" class="form-control" style="width: 200px" autocomplete="off">    </td>
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Teléfono</div></td>
+                        <td><div class="tituloChico">Teléfono:</div></td>
                         <td> 
-                            <input type="text" name="Telefono" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="Telefono" class="form-control" style="width: 200px" autocomplete="off">    </td>
                     </tr>
                     
                     <tr>
-                        <td><div class="tituloChico">Correo electrónico</div></td>
+                        <td><div class="tituloChico">Correo electrónico:</div></td>
                         <td> 
-                            <input type="email" name="Correo" class="autorut" style="width: 200px" autocomplete="off">    </td>
+                            <input type="email" name="Correo" class="form-control" style="width: 200px" autocomplete="off">    </td>
                     </tr>
                     
                     <tr> 

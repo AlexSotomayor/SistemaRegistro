@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Administrador_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class MenuAdministrador_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,16 +46,12 @@ public final class Administrador_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
-      out.write("        \n");
-      out.write("        <head>\n");
+      out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Menu Administrador</title>\n");
-      out.write("\n");
-      out.write("        <link href=\"Css/EstiloHome.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("          <form action=\"\" method=\"\">\n");
+      out.write("        <form action=\"\" method=\"\">\n");
       out.write("\n");
       out.write("            <nav class=\"navbar navbar-dark bg-dark\">\n");
       out.write("                <a style=\"color: white\" class=\"navbar-toggler\"><span class=\"navbar-toggler-icon\"></span>Home</a>\n");
@@ -79,14 +75,14 @@ out.print(session.getAttribute("Nivel"));
       out.write("                    </div>  \n");
       out.write("                </div>  \n");
       out.write("                </div>\n");
-      out.write("          \n");
+      out.write("\n");
       out.write("            </nav>\n");
       out.write("            <div>\n");
-      out.write("          <h1>Sesión Administrador</h1>\n");
+      out.write("                <h1>Sesión Administrador</h1>\n");
       out.write("                <ul id=\"menu\">\n");
       out.write("                    <li><a href=\"CrearUsuarios.jsp\"  title=\"\">Ingreso Usuarios </a></li>\n");
       out.write("                    <li><a href=\"\"  title=\"\"></a></li>\n");
-      out.write("                    \n");
+      out.write("\n");
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"container mt-4\">\n");
@@ -97,15 +93,10 @@ out.print(session.getAttribute("Nivel"));
       out.write("            <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>\n");
       out.write("            <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\n");
       out.write("\n");
+      out.write("        </form>\n");
+      out.write("\n");
       out.write("    </body>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("</form>\n");
-      out.write("</body>\n");
-      out.write("     \n");
-      out.write("        \n");
-      out.write("      \n");
-      out.write("  </html>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

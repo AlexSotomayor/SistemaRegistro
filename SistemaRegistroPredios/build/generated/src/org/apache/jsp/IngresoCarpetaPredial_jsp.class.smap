@@ -1,0 +1,19 @@
+SMAP
+IngresoCarpetaPredial_jsp.java
+JSP
+*S JSP
+*F
++ 0 IngresoCarpetaPredial.jsp
+IngresoCarpetaPredial.jsp
++ 1 Menu.jsp
+Menu.jsp
+*L
+1,10:51
+10,11:61
+1#1,24:72
+25:96,3
+26:99
+27:100,3
+28,36:103
+20#0,55:138
+*E

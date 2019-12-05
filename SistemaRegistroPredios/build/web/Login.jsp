@@ -64,7 +64,7 @@
                 case 1:
                     sesion.setAttribute("user", nombre);
                     sesion.setAttribute("Nivel", "1");
-                    response.sendRedirect("Administrador.jsp");
+                    response.sendRedirect("MenuAdministrador.jsp");
                     break;
 
                 case 2:
@@ -83,6 +83,10 @@
                     out.write("Usuario no existe, o contraseña inválida");
                     break;
             }
+        }
+        
+        if(request.getParameter("cerrar")!=null){
+            session.invalidate();
         }
     %>
 </body>

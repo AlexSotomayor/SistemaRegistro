@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Alex
  */
-public class IngresoPredio extends HttpServlet {
+public class GuardarPredio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -99,7 +99,7 @@ public class IngresoPredio extends HttpServlet {
             cnx.getConnection();
             estado =  cnx.guardarDatos(query);
         } catch (SQLException ex) {
-            Logger.getLogger(IngresoPredio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarPredio.class.getName()).log(Level.SEVERE, null, ex);
         } 
             response.sendRedirect("IngresoPredial.jsp");
     }

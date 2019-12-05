@@ -1,0 +1,21 @@
+SMAP
+PlanDeManejo_jsp.java
+JSP
+*S JSP
+*F
++ 0 PlanDeManejo.jsp
+PlanDeManejo.jsp
++ 1 Menu.jsp
+Menu.jsp
+*L
+1,9:51
+9,13:60
+1#1,24:73
+25:97,3
+26:100
+27:101,3
+28,36:104
+21#0,14:139
+34,5:153
+38,29:158
+*E

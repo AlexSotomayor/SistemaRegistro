@@ -17,7 +17,7 @@
         <div>
             <div id="principal">
                 <%@include  file="Menu.jsp" %>
-                <form action="IngresoPredio" method="POST">        
+                <form action="GuardarPredio" method="POST">        
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
                             <td colspan="2" align="center">
@@ -25,42 +25,42 @@
                             </td>
                         </tr>
 
-                        <td><div class="">Nombre</div></td>
+                        <td><div class="">Nombre:</div></td>
                         <td> 
                             <input type="text" name="Nombre" class="form-control" style="width: 200px">
                         </td>
                         </tr>
 
                         <tr>
-                            <td><div class="tituloChico">Superficie</div></td>
+                            <td><div class="tituloChico">Superficie:</div></td>
                             <td> 
                                 <input type="text" name="Superficie" class="form-control" style="width: 200px" autocomplete="off">    </td>
                         </tr>
 
                         <tr>
-                            <td><div class="tituloChico">Rol Avalúo</div></td>
+                            <td><div class="tituloChico">Rol Avalúo:</div></td>
                             <td> 
                                 <input type="text" name="rolAvaluo" class="form-control" style="width: 200px" autocomplete="off">    </td>
                         </tr>
 
                         <tr>
-                            <td><div class="tituloChico">Coordenada UTM N</div></td>
+                            <td><div class="tituloChico">Coordenada UTM N:</div></td>
                             <td> 
                                 <input type="text" name="coordenadaUTMN" class="form-control" style="width: 200px" autocomplete="off">
                             </td>
                         </tr>
 
                         <tr>
-                            <td><div class="tituloChico">Coordenada UTM E</div></td>
+                            <td><div class="tituloChico">Coordenada UTM E:</div></td>
                             <td> 
                                 <input type="text" name="coordenadaUTME" class="form-control" style="width: 200px" autocomplete="off">
                             </td>
                         </tr>
 
-                        <tr valign="top" style="width: 200px"> 
+                        <tr valign="top"> 
                             <td>Comuna:</td>
                             <td>
-                                <select name="Comuna">
+                                <select name="Comuna" style="width: 250px">
                                     <option  value='-1'>-- Seleccione una comuna --</option>
                                     <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_Comuna,Nombre FROM Comuna");
                                         while (puntero.next()) {
