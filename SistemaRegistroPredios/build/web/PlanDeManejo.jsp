@@ -47,14 +47,13 @@
                         </td>
                     </tr>
                     
-                    <tr> 
-                        <td colspan="2" >
-                            <a href="IngresoPredial.jsp"><button class="button10" type="button" onclick="submit()">Ingresar Nuevo Predio</button></td></a>
-                    </tr>
+                    <td colspan="2" align="center">
+                        <a href="IngresoPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Ingresar Nuevo Predio</button></a>
+                        </td>  
                     
                     <tr> 
-                        <td colspan="2" >
-                            <a href="Menu.jsp"><button class="button10" type="button"  onclick="submit()">Salir</button></td></a>
+                        <td colspan="2" align="center">
+                            <a href="MenuAdministrativo.jsp"><button class="btn btn-primary" type="button"  onclick="submit()">Salir</button></td></a>
                     </tr>
                     
                     

@@ -15,12 +15,13 @@
     </head>
     <body>
         <div>
-            <div id="principal">
-                <%@include  file="MenuAdministrativo.jsp" %>
-                <form action="GuardarPredio" method="POST">        
+           
+                
+                <form action="" method="POST"> 
+                <%@include  file="MenuAdministrativo.jsp" %>    
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
-                            <td colspan="2" align="center">
+                            <td colspGuardarPredioan="2" align="center">
                                 <h3>Ingreso Predio</h3>
                             </td>
                         </tr>
@@ -71,7 +72,6 @@
                             </td>
                         </tr>
 
-
                         <td colspan="2" align="center">
                             <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
                         </td>       
@@ -83,7 +83,7 @@
                         </tr>
                     </table>   
                 </form>        
-            </div>
+          
         </div>
     </body>
 </html>

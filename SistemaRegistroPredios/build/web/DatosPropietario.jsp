@@ -6,10 +6,7 @@
 
 <%
     conexion cnx = new conexion();
-
     cnx.getConnection();
-
-    ResultSet Propietario   = cnx.cargarCombo("SELECT * FROM Propietario");
 %>
 <!DOCTYPE html>
 <html>
@@ -21,7 +18,7 @@
     <body>
         <div>
             <form action="GuardarPropietarios" method="POST">
-          <div id="principal">
+          
               <%@include  file="MenuAdministrativo.jsp" %>
                 <table border="0" cellspacing="0" cellpadding="2" align="center">
                     <tr> 
@@ -75,17 +72,17 @@
                     
                     <tr> 
                         <td colspan="2" align="center">
-                            <button class="button10" type="button" onclick="submit()">Guardar</button>    </td>
+                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>    </td>
                     </tr>
                     
                     <tr> 
                         <td colspan="2" align="center">
-                            <a href="CarpetaPredial.jsp"><button class="button10" type="button" onclick="submit()">Continuar</button></a></td>
+                            <a href="CarpetaPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a></td>
                     </tr>
                     
                 </table>
               
-            </div>
+     
             </form>
         </div>
         

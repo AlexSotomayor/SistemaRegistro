@@ -63,18 +63,21 @@
             switch (cnx.loguear(nombre, contra)) {
                 case 1:
                     sesion.setAttribute("user", nombre);
+                    sesion.setAttribute("Tipo", "Administrador");
                     sesion.setAttribute("Nivel", "1");
                     response.sendRedirect("MenuAdministrador.jsp");
                     break;
 
                 case 2:
                     sesion.setAttribute("user", nombre);
+                    sesion.setAttribute("Tipo", "Administrativo");
                     sesion.setAttribute("Nivel", "2");
                     response.sendRedirect("MenuAdministrativo.jsp");
                     break;
 
                 case 3:
                     sesion.setAttribute("user", nombre);
+                    sesion.setAttribute("Tipo", "Usuario Externo");
                     sesion.setAttribute("Nivel", "3");
                     response.sendRedirect("MenuConsultasPredio.jsp");
                     break;

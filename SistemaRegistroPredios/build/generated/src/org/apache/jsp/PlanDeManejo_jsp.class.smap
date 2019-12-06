@@ -5,17 +5,17 @@ JSP
 *F
 + 0 PlanDeManejo.jsp
 PlanDeManejo.jsp
-+ 1 Menu.jsp
-Menu.jsp
++ 1 MenuAdministrativo.jsp
+MenuAdministrativo.jsp
 *L
 1,9:51
 9,13:60
-1#1,24:73
-25:97,3
-26:100
-27:101,3
-28,36:104
-21#0,14:139
-34,5:153
-38,29:158
+1#1,25:73
+26:98,3
+27:101
+28:102,3
+29,38:105
+21#0,14:142
+34,5:156
+38,28:161
 *E

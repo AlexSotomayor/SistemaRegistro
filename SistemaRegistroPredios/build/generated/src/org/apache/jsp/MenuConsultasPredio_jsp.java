@@ -3,20 +3,13 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import cl.aiep.conexion.conexion;
-import java.sql.ResultSet;
 
-public final class IngresoConsulta_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class MenuConsultasPredio_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
-    _jspx_dependants.add("/MenuConsultasPredio.jsp");
-  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -51,30 +44,10 @@ public final class IngresoConsulta_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\n");
       out.write("\n");
       out.write("\n");
-
-    conexion cnx = new conexion();
-    cnx.getConnection();
-
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <link href=\"Css/EstiloMenu.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <link href=\"Css/EstiloHome.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n");
       out.write("\n");
@@ -136,62 +109,6 @@ out.print(session.getAttribute("Tipo"));
       out.write("\n");
       out.write("</body>\n");
       out.write("</html>\n");
-      out.write("\n");
-      out.write("        <div class=\"tituloPagina\" align=\"center\">Fichas Prediales</div><div class=\"contenedor\"></div>\n");
-      out.write("    <tr align=\"center\"><td>\n");
-      out.write("            <form name=\"f\" enctype=\"multipart/form-data\" method=\"post\" action=\"/fichaPredial/buscarAction.php\">\n");
-      out.write("               \n");
-      out.write("                    <br>\n");
-      out.write("                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" class=\"sin_estilo\">\n");
-      out.write("                        <tr valign=\"top\"> \n");
-      out.write("                            <td> \n");
-      out.write("                                Nombre del Predio:\n");
-      out.write("                            </td>\n");
-      out.write("                            <td> \n");
-      out.write("                                <input type=\"text\" name=\"nomPredio\" class=\"form-control\" style=\"width: 200px\">\n");
-      out.write("                            </td>\n");
-      out.write("                        </tr>\n");
-      out.write("                        <tr valign=\"top\"> \n");
-      out.write("                            <td> \n");
-      out.write("                                Rol de Aval&uacute;o:\n");
-      out.write("                            </td>\n");
-      out.write("                            <td> \n");
-      out.write("                                <input type=\"text\" name=\"rol\" class=\"form-control\" style=\"width: 200px\">\n");
-      out.write("                            </td>\n");
-      out.write("                        </tr>\n");
-      out.write("\n");
-      out.write("                        <tr> \n");
-      out.write("                            <td valign=\"top\"> \n");
-      out.write("                                RUT:\n");
-      out.write("                            </td>\n");
-      out.write("                            <td> \n");
-      out.write("                                <input type=\"text\" name=\"rut\" size=\"13\" onblur=\"checkRutField(this);\" class=\"form-control\" style=\"width: 200px\">\n");
-      out.write("                            </td>\n");
-      out.write("                        </tr>\n");
-      out.write("\n");
-      out.write("                        <tr valign=\"top\"> \n");
-      out.write("                            <td>Comuna:</td>\n");
-      out.write("                            <td>\n");
-      out.write("                                <select name=\"Comuna\" style=\"width: 250px\" class=\"form-control\">\n");
-      out.write("                                    <option  value='-1'>-- Seleccione una comuna --</option>\n");
-      out.write("                                    ");
-ResultSet comuna = cnx.EntregaDatos("SELECT Id_Comuna,Nombre FROM Comuna");
-                                        while (comuna.next()) {
-                                            out.println("<option value='" + comuna.getInt(1) + "'>" + comuna.getString(2) + "</option>");
-                                        }
-                                    
-      out.write(" \n");
-      out.write("                                </select>\n");
-      out.write("                            </td>\n");
-      out.write("                        </tr>\n");
-      out.write("\n");
-      out.write("                        <tr> \n");
-      out.write("                            <td colspan=\"2\" align=\"center\">\n");
-      out.write("                                <button class=\"btn btn-primary success\" type=\"button\" onclick=\"submit()\">Buscar</button>  </td>\n");
-      out.write("                        </tr>\n");
-      out.write("                    </table>    \n");
-      out.write("                    </body>\n");
-      out.write("                    </html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

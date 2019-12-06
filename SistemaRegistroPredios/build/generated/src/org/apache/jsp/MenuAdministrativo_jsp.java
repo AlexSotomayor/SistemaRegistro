@@ -3,20 +3,13 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import cl.aiep.conexion.conexion;
-import java.sql.ResultSet;
 
-public final class PlanDeManejo_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class MenuAdministrativo_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
-    _jspx_dependants.add("/MenuAdministrativo.jsp");
-  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -52,28 +45,6 @@ public final class PlanDeManejo_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-
-    conexion cnx = new conexion();
-    cnx.getConnection();
-
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        \n");
-      out.write("        <title>Plan de Manejo</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <form action=\"\" metod=\"\">\n");
-      out.write("            <div class=\"Principal\">\n");
-      out.write("                ");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -87,7 +58,7 @@ public final class PlanDeManejo_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\n");
       out.write("    <body>\n");
       out.write("        <nav class=\"navbar navbar-dark bg-dark\">\n");
-      out.write("            <a style=\"color: white\" class=\"navbar-toggler\"><span class=\"navbar-home-icon\"></span>Home</a>\n");
+      out.write("            <a style=\"color: white\" class=\"navbar-toggler\"><span class=\"navbar-home-icon\"></span></a>\n");
       out.write("\n");
       out.write("            <div class=\"dropdown\">\n");
       out.write("                <a style=\"color: white\" href=\"#\" class=\"nav-link dropdown-toggle\" data-toggle =\"dropdown\">Usuario - Cerrar Sesión</a>\n");
@@ -122,7 +93,7 @@ out.print(session.getAttribute("Tipo"));
       out.write("            <ul class=\"list-unstyled components\">\n");
       out.write("                <p>Inicio</p>\n");
       out.write("                <li class=\"active\">\n");
-      out.write("                    <a href=\"#homeSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Home</a>\n");
+      out.write("                    <a href=\"#homeSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Recepción de Ingresos</a>\n");
       out.write("                    <ul class=\"collapse list-unstyled\" id=\"homeSubmenu\" >\n");
       out.write("                        <li><a href=\"IngresoPredial.jsp\"   title=\"\" style=\"color: white\">Ingreso Predio</a></li>\n");
       out.write("                        <li><a href=\"DatosPropietario.jsp\" title=\"\" style=\"color: white\">Ingreso Propietario</a></li>\n");
@@ -138,52 +109,6 @@ out.print(session.getAttribute("Tipo"));
       out.write("        <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\n");
       out.write("\n");
       out.write("</body>\n");
-      out.write("</html>\n");
-      out.write("\n");
-      out.write("                <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\" align=\"center\">\n");
-      out.write("                    <tr> \n");
-      out.write("                        <td colspan=\"2\" align=\"center\">\n");
-      out.write("                            <h3>Registro Plan de Manejo:</h3>\n");
-      out.write("                        </td>\n");
-      out.write("                    </tr>\n");
-      out.write("\n");
-      out.write("                    <tr valign=\"top\"> \n");
-      out.write("                        <td>Estudio Técnico:</td>\n");
-      out.write("                        <td>\n");
-      out.write("                            <select name=\"Comuna\" style=\"width: 250px\" class=\"form-control\">\n");
-      out.write("                                <option  value='-1'>Seleccione tipo de estudio</option>\n");
-      out.write("                                ");
-ResultSet puntero = cnx.EntregaDatos("SELECT Id_TipoPlanDeManejo,EstudioTecnico FROM TipoPlanDeManejo");
-                                    while (puntero.next()) {
-                                        out.println("<option value='" + puntero.getInt(1) + "'>" + puntero.getString(2) + "</option>");
-                                    }
-                                
-      out.write(" \n");
-      out.write("                            </select>\n");
-      out.write("                        </td>\n");
-      out.write("                    </tr>\n");
-      out.write("\n");
-      out.write("                    <tr>\n");
-      out.write("                        <td><div class=\"tituloChico\">Marco Legal:</div></td>\n");
-      out.write("                        <td> \n");
-      out.write("                            <input type=\"text\" name=\"marcolegal\" class=\"form-control\" style=\"width: 200px\" autocomplete=\"off\">\n");
-      out.write("                        </td>\n");
-      out.write("                    </tr>\n");
-      out.write("                    \n");
-      out.write("                    <td colspan=\"2\" align=\"center\">\n");
-      out.write("                        <a href=\"IngresoPredial.jsp\"><button class=\"btn btn-primary\" type=\"button\" onclick=\"submit()\">Ingresar Nuevo Predio</button></a>\n");
-      out.write("                        </td>  \n");
-      out.write("                    \n");
-      out.write("                    <tr> \n");
-      out.write("                        <td colspan=\"2\" align=\"center\">\n");
-      out.write("                            <a href=\"MenuAdministrativo.jsp\"><button class=\"btn btn-primary\" type=\"button\"  onclick=\"submit()\">Salir</button></td></a>\n");
-      out.write("                    </tr>\n");
-      out.write("                    \n");
-      out.write("                    \n");
-      out.write("                </table>\n");
-      out.write("            </div>\n");
-      out.write("        </form>\n");
-      out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

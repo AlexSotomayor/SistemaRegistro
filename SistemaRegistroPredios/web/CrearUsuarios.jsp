@@ -14,60 +14,61 @@
     </head>
     <body>
         <div>
-            <div id="principal">
-                
-                <form action="IngresoPredio" method="POST">        
-                    <table border="0" cellspacing="0" cellpadding="2" align="center">
-                        <tr> 
-                            <td colspan="2" align="center">
-                                <h3>Creacion de Usuario</h3>
-                            </td>
-                        </tr>
+            <form action="IngresoPredio" method="POST">   
+                <%@include  file="MenuAdministrador.jsp" %>
 
-                        <td><div class="">Nombre</div></td>
-                        <td> 
-                            <input type="text" name="Nombre" class="form-control" style="width: 200px">
-                        </td>
-                        </tr>
-
-                        <tr>
-                            <td><div class="tituloChico">Rut</div></td>
-                            <td> 
-                                <input type="text" name="txtRut" class="form-control" style="width: 200px" autocomplete="off">    </td>
-                        </tr>
-
-                        <tr>
-                            <td><div class="tituloChico">Clave:</div></td>
-                            <td> 
-                                <input type="text" name="txtClave" class="form-control" style="width: 200px" autocomplete="off">    </td>
-                        </tr>
-
-                        <tr>
-                            <td><div class="tituloChico">Nivel:</div></td>
-                            <td> 
-                                <input type="text" name="txtNivel" class="form-control" style="width: 200px" autocomplete="off">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><div class="tituloChico">Tipo:</div></td>
-                            <td> 
-                                <input type="text" name="txtTipo" class="form-control" style="width: 200px" autocomplete="off">
-                            </td>
-                        </tr>
-
+                <table border="0" cellspacing="0" cellpadding="2" align="center">
+                    <tr> 
                         <td colspan="2" align="center">
-                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
-                        </td>       
+                            <h3>Creación de Usuario</h3>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                    <td><div class="">Nombre:</div></td>
+                    <td> 
+                        <input type="text" name="Nombre" class="form-control" style="width: 200px">
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><div class="tituloChico">Rut:</div></td>
+                        <td> 
+                            <input type="text" name="txtRut" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                    </tr>
+
+                    <tr>
+                        <td><div class="tituloChico">Clave:</div></td>
+                        <td> 
+                            <input type="text" name="txtClave" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                    </tr>
+
+                    <tr>
+                        <td><div class="tituloChico">Nivel:</div></td>
+                        <td> 
+                            <input type="text" name="txtNivel" class="form-control" style="width: 200px" autocomplete="off">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><div class="tituloChico">Tipo:</div></td>
+                        <td> 
+                            <input type="text" name="txtTipo" class="form-control" style="width: 200px" autocomplete="off">
+                        </td>
+                    </tr>
+
+                    <td colspan="2" align="center">
+                        <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
+                    </td>       
 
 
-                        <tr> 
-                            <td colspan="2" align="center">
-                                <a href="DatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
-                        </tr>
-                    </table>   
-                </form>        
-            </div>
+                    <tr> 
+                        <td colspan="2" align="center">
+                            <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>    </td>
+                    </tr>
+                </table>   
+            </form>        
+
         </div>
     </body>
 </html>

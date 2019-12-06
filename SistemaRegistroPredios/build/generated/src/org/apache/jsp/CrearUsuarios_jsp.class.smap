@@ -5,6 +5,14 @@ JSP
 *F
 + 0 CrearUsuarios.jsp
 CrearUsuarios.jsp
++ 1 MenuAdministrador.jsp
+MenuAdministrador.jsp
 *L
-5,70:44
+5,14:49
+5#1,22:63
+27:85,3
+28:88
+29:89,3
+30,40:92
+18#0,57:131
 *E

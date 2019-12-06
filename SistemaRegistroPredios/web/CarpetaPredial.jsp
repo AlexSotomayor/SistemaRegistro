@@ -54,12 +54,12 @@
 
                 <tr> 
                     <td colspan="2" align="center">
-                        <button class="button10" type="button" onclick="submit()">Guardar</button>    </td>
+                        <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>    </td>
                 </tr>
 
                 <tr> 
                     <td colspan="2" align="center">
-                        <a href="PlanDeManejo.jsp"><button class="button10" type="button" onclick="submit()">Continuar</button></a></td>
+                        <a href="PlanDeManejo.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a></td>
                 </tr>
 
             </table>              
