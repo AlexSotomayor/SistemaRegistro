@@ -1,10 +1,10 @@
 SMAP
-IngresoCarpetaPredial_jsp.java
+IngresoPredial_jsp.java
 JSP
 *S JSP
 *F
-+ 0 IngresoCarpetaPredial.jsp
-IngresoCarpetaPredial.jsp
++ 0 IngresoPredial.jsp
+IngresoPredial.jsp
 + 1 MenuAdministrativo.jsp
 MenuAdministrativo.jsp
 *L
@@ -15,5 +15,7 @@ MenuAdministrativo.jsp
 27:99
 28:100,3
 29,38:103
-19#0,51:140
+19#0,46:140
+64,5:186
+68,20:191
 *E

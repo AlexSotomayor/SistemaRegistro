@@ -16,7 +16,7 @@
         <title>Plan de Manejo</title>
     </head>
     <body>
-        <form action="" metod="">
+        <form action="GuardarPlanDeManejo" metod="POST">
             <div class="Principal">
                 <%@include  file="MenuAdministrativo.jsp" %>
                 <table border="0" cellspacing="0" cellpadding="2" align="center">
@@ -29,7 +29,7 @@
                     <tr valign="top"> 
                         <td>Estudio Técnico:</td>
                         <td>
-                            <select name="Comuna" style="width: 250px" class="form-control">
+                            <select name="estudiotecnico" style="width: 250px" class="form-control">
                                 <option  value='-1'>Seleccione tipo de estudio</option>
                                 <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_TipoPlanDeManejo,EstudioTecnico FROM TipoPlanDeManejo");
                                     while (puntero.next()) {
@@ -40,13 +40,13 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td><div class="tituloChico">Marco Legal:</div></td>
-                        <td> 
-                            <input type="text" name="marcolegal" class="form-control" style="width: 200px" autocomplete="off">
+                     <tr> 
+                         
+                        <td colspan="2" align="center">
+                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>  
                         </td>
                     </tr>
-                    
+               
                     <td colspan="2" align="center">
                         <a href="IngresoPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Ingresar Nuevo Predio</button></a>
                         </td>  
@@ -55,6 +55,7 @@
                         <td colspan="2" align="center">
                             <a href="MenuAdministrativo.jsp"><button class="btn btn-primary" type="button"  onclick="submit()">Salir</button></td></a>
                     </tr>
+                       
                     
                     
                 </table>

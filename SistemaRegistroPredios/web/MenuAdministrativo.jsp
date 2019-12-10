@@ -25,7 +25,7 @@
                         <p>
                             <%out.print(session.getAttribute("user"));%> 
                             - 
-                            <%out.print(session.getAttribute("Tipo"));%>  
+                            <%out.print(session.getAttribute("Nivel"));%>  
                         </p>
                     </li> 
                     <div class="dropdown-divider"></div>
@@ -49,9 +49,9 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Recepción de Ingresos</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu" >
                         <li><a href="IngresoPredial.jsp"   title="" style="color: white">Ingreso Predio</a></li>
-                        <li><a href="DatosPropietario.jsp" title="" style="color: white">Ingreso Propietario</a></li>
-                        <li><a href="CarpetaPredial.jsp"   title="" style="color: white">Ingreso Carpeta Predial</a></li>
-                        <li><a href="PlanDeManejo.jsp"     title="" style="color: white">Ingreso Plan de Manejo</a></li>
+                        <li><a href="IngresoDatosPropietario.jsp" title="" style="color: white">Ingreso Propietario</a></li>
+                        <li><a href="IngresoCarpetaPredial.jsp"   title="" style="color: white">Ingreso Carpeta Predial</a></li>
+                        <li><a href="IngresoPlanDeManejo.jsp"     title="" style="color: white">Ingreso Plan de Manejo</a></li>
                     </ul>
                 </li>
             </ul>

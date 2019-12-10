@@ -19,9 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Alex
+ * @author Marta
  */
-public class GuardarPredio extends HttpServlet {
+public class GuardarPropietario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class GuardarPredio extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IngresoPredio</title>");            
+            out.println("<title>Servlet GuardarPropietario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IngresoPredio at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GuardarPropietario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,34 +75,54 @@ public class GuardarPredio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre       =     request.getParameter("Nombre");
-        String superficie   =     request.getParameter("Superficie");
-        String rolavaluo    =     request.getParameter("rolAvaluo");
-        String coordenadan  =     request.getParameter("coordenadaUTMN");
-        String coordenadae  =     request.getParameter("coordenadaUTME");
-        String comuna       =     request.getParameter("Comuna");
+        String Rut          =   request.getParameter("Rut");
+        String Nombres      =     request.getParameter("Nombre");
+        String ApellidoPaterno  =     request.getParameter("ApellidoPaterno");
+        String ApellidoMaterno    =     request.getParameter("ApellidoMaterno");
+        String Direccion =     request.getParameter("Direccion");
+        String Telefono  =     request.getParameter("Telefono");
+        String CorreoElectronico      =     request.getParameter("Correo");
         
                 
-        HttpSession sesion = request.getSession();
+            HttpSession sesion = request.getSession();
             String nivel;
             nivel = sesion.getAttribute("Nivel").toString();
-       
+        
         conexion cnx = new conexion();
         boolean estado = false;
         
-        String query = "INSERT INTO Predio "+
-                       "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
-                       "values "+
-                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
+        String query = "INSERT INTO Propietario"+
+                      "(Id_RutPropietario, Nombres, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, CorreoElectronico)"+ 
+                "values"+
+                  "('"+Rut+"','"+Nombres+"','"+ApellidoPaterno+"', '"+ApellidoMaterno+"', '"+Direccion+"', '"+Telefono+"', '"+CorreoElectronico+"','"+nivel+"')";
+                
+                
+                
         System.out.println(query);
         try {
             cnx.getConnection();
             estado =  cnx.guardarDatos(query);
+            
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPredio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarPropietario.class.getName()).log(Level.SEVERE, null, ex);
         } 
-            response.sendRedirect("IngresoPredial.jsp");
+            response.sendRedirect("IngresoDatosPropietario.jsp");
+            
+            
+            
+            
     }
+  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
 
     /**
      * Returns a short description of the servlet.

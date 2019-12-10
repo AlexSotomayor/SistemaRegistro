@@ -14,11 +14,13 @@
         <title>Ingreso de predio</title>
     </head>
     <body>
-        <div>
-           
-                
-                <form action="" method="POST"> 
-                <%@include  file="MenuAdministrativo.jsp" %>    
+        <div> 
+
+
+            <form action="GuardarPredio" method="POST"> 
+                <%@include  file="MenuAdministrativo.jsp" %>
+                <form action="GuardarPredio" method="POST"> 
+
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
                             <td colspGuardarPredioan="2" align="center">
@@ -61,7 +63,7 @@
                         <tr valign="top"> 
                             <td>Comuna:</td>
                             <td>
-                                <select name="Comuna" style="width: 250px">
+                                <select name="Comuna" style="width: 250px" class="form-control">
                                     <option  value='-1'>-- Seleccione una comuna --</option>
                                     <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_Comuna,Nombre FROM Comuna");
                                         while (puntero.next()) {
@@ -73,9 +75,8 @@
                         </tr>
 
                         <td colspan="2" align="center">
-                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
+                            <button class="btn btn-primary" type="submit" onclick="submit()">Guardar</button> 
                         </td>       
-
 
                         <tr> 
                             <td colspan="2" align="center">
@@ -83,7 +84,7 @@
                         </tr>
                     </table>   
                 </form>        
-          
+
         </div>
     </body>
 </html>

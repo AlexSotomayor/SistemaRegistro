@@ -19,9 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Alex
+ * @author Marta
  */
-public class GuardarPredio extends HttpServlet {
+public class GuardarPlanDeManejo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class GuardarPredio extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IngresoPredio</title>");            
+            out.println("<title>Servlet GuardarPlanDeManejo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IngresoPredio at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GuardarPlanDeManejo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,33 +75,24 @@ public class GuardarPredio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre       =     request.getParameter("Nombre");
-        String superficie   =     request.getParameter("Superficie");
-        String rolavaluo    =     request.getParameter("rolAvaluo");
-        String coordenadan  =     request.getParameter("coordenadaUTMN");
-        String coordenadae  =     request.getParameter("coordenadaUTME");
-        String comuna       =     request.getParameter("Comuna");
-        
-                
-        HttpSession sesion = request.getSession();
-            String nivel;
-            nivel = sesion.getAttribute("Nivel").toString();
+        String Estudiotecnico  = request.getParameter("estudiotecnico");
        
         conexion cnx = new conexion();
-        boolean estado = false;
+        boolean plandeM = false;
         
-        String query = "INSERT INTO Predio "+
-                       "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
-                       "values "+
-                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
+        String query = "INSERT INTO tipoplandemanejo "+ 
+                       "(EstudioTecnico) "+ 
+                       "VALUES "+ 
+                       "('"+Estudiotecnico+"')";              
         System.out.println(query);
         try {
             cnx.getConnection();
-            estado =  cnx.guardarDatos(query);
+            plandeM =  cnx.guardarDatos(query);
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPredio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarPlanDeManejo.class.getName()).log(Level.SEVERE, null, ex);
         } 
-            response.sendRedirect("IngresoPredial.jsp");
+            response.sendRedirect("IngresoPlanDeManejo.jsp");
+               
     }
 
     /**

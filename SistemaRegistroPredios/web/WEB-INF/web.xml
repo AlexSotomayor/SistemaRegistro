@@ -4,9 +4,33 @@
         <servlet-name>IngresoPredio</servlet-name>
         <servlet-class>cl.aiep.controller.IngresoPredio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarPropietario</servlet-name>
+        <servlet-class>cl.aiep.controller.GuardarPropietario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarPlanDeManejo</servlet-name>
+        <servlet-class>cl.aiep.controller.GuardarPlanDeManejo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarCarpetaPredial</servlet-name>
+        <servlet-class>cl.aiep.controller.GuardarCarpetaPredial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IngresoPredio</servlet-name>
         <url-pattern>/IngresoPredio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarPropietario</servlet-name>
+        <url-pattern>/GuardarPropietario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarPlanDeManejo</servlet-name>
+        <url-pattern>/GuardarPlanDeManejo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCarpetaPredial</servlet-name>
+        <url-pattern>/GuardarCarpetaPredial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

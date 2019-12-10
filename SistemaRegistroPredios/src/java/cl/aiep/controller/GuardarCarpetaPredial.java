@@ -19,9 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Alex
+ * @author Marta
  */
-public class GuardarPredio extends HttpServlet {
+public class GuardarCarpetaPredial extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class GuardarPredio extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IngresoPredio</title>");            
+            out.println("<title>Servlet GuardarCarpetaPredial</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IngresoPredio at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GuardarCarpetaPredial at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,33 +75,49 @@ public class GuardarPredio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre       =     request.getParameter("Nombre");
-        String superficie   =     request.getParameter("Superficie");
-        String rolavaluo    =     request.getParameter("rolAvaluo");
-        String coordenadan  =     request.getParameter("coordenadaUTMN");
-        String coordenadae  =     request.getParameter("coordenadaUTME");
-        String comuna       =     request.getParameter("Comuna");
         
+        String numeroresolucion  =     request.getParameter("NumeroResolucion");
+        String fecharesolucion   =     request.getParameter("fecha");
+        String infraccion        =     request.getParameter("Infraccion");
+        String estadoresulucion  =     request.getParameter("optradio");
+        String numerocarpeta     =     request.getParameter("NumeroCarpeta");
+        String EstudioTecnico    =     request.getParameter("estudiotecnico");
                 
         HttpSession sesion = request.getSession();
             String nivel;
             nivel = sesion.getAttribute("Nivel").toString();
-       
+        
         conexion cnx = new conexion();
         boolean estado = false;
         
-        String query = "INSERT INTO Predio "+
-                       "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
-                       "values "+
-                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
-        System.out.println(query);
+        String query = "INSERT INTO CarpetaPredial "+
+                       "(NumeroResolucion,FechaResolucion, Infraccion,`EstadoResolucion, NumeroCarpeta, Id_Predio, Id_TipoPlanDeManejo, Id_Usuario) "+
+                       "VALUES "+
+                "('"+numeroresolucion+"','"+fecharesolucion +"', '"+infraccion +"', '"+estadoresulucion+"', '"+numerocarpeta+"','"+EstudioTecnico+"', '"+nivel+"')";
+                           
+                
+       System.out.println(query);
         try {
             cnx.getConnection();
             estado =  cnx.guardarDatos(query);
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPredio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarCarpetaPredial.class.getName()).log(Level.SEVERE, null, ex);
         } 
-            response.sendRedirect("IngresoPredial.jsp");
+            response.sendRedirect("IngresoCarpetaPredial.jsp");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     /**

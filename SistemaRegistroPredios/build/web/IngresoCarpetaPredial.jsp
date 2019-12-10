@@ -14,8 +14,7 @@
         <title>Registro de plan de Manejo</title>
     </head>
     <body>
-        <form action="" method="POST">
-
+        <form action="GuardarCarpetaPredial" method="POST">
             <%@include  file="MenuAdministrativo.jsp" %>
             <table border="0" cellspacing="0" cellpadding="2" align="center">
                 <tr> 
@@ -41,7 +40,7 @@
                 <tr>
                     <td><div class="tituloChico">Estado Resolución:</div></td>
                     <td>
-                        <label class="radio-inline"><input type="radio" name="optradio">Aprovada</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Aprobada</label>
                         <label class="radio-inline"><input type="radio" name="optradio">Denegada</label>
                     </td> 
                 </tr>
@@ -49,7 +48,21 @@
                 <tr>
                     <td><div class="tituloChico">Número Carpeta Predial:</div></td>
                     <td> 
-                        <input type="text" name="Infraccion" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                        <input type="text" name="NumeroCarpeta" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                </tr>
+
+                <tr valign="top"> 
+                    <td>Estudio Técnico:</td>
+                    <td>
+                        <select name="estudiotecnico" style="width: 250px" class="form-control">
+                            <option  value='-1'>Seleccione tipo de estudio</option>
+                            <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_TipoPlanDeManejo,EstudioTecnico FROM TipoPlanDeManejo");
+                                while (puntero.next()) {
+                                    out.println("<option value='" + puntero.getInt(1) + "'>" + puntero.getString(2) + "</option>");
+                                }
+                            %> 
+                        </select>
+                    </td>
                 </tr>
 
                 <tr> 
@@ -59,7 +72,7 @@
 
                 <tr> 
                     <td colspan="2" align="center">
-                        <a href="PlanDeManejo.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a></td>
+                        <a href="CarpetaPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a></td>
                 </tr>
 
             </table>              
