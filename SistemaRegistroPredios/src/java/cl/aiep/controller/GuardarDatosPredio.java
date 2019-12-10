@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Alex
  */
-public class GuardarPredio extends HttpServlet {
+public class GuardarDatosPredio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class GuardarPredio extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet IngresoPredio</title>");            
+            out.println("<title>Servlet GuardarDatosPredio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IngresoPredio at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GuardarDatosPredio at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -82,7 +82,6 @@ public class GuardarPredio extends HttpServlet {
         String coordenadae  =     request.getParameter("coordenadaUTME");
         String comuna       =     request.getParameter("Comuna");
         
-                
         HttpSession sesion = request.getSession();
             String nivel;
             nivel = sesion.getAttribute("Nivel").toString();
@@ -99,7 +98,7 @@ public class GuardarPredio extends HttpServlet {
             cnx.getConnection();
             estado =  cnx.guardarDatos(query);
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPredio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarDatosPredio.class.getName()).log(Level.SEVERE, null, ex);
         } 
             response.sendRedirect("IngresoPredial.jsp");
     }

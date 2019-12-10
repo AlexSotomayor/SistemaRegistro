@@ -1,5 +1,6 @@
 
 <%@page import="cl.aiep.conexion.conexion"%>
+<%@page import="cl.aiep.controller.GuardarDatosPredio"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -15,9 +16,7 @@
     </head>
     <body>
         <div> 
-
-
-            <form action="GuardarPredio" method="POST"> 
+            <form action="GuardarDatosPredio" method="post"> 
                 <%@include  file="MenuAdministrativo.jsp" %>
                 <form action="GuardarPredio" method="POST"> 
 

@@ -16,6 +16,10 @@
         <servlet-name>GuardarCarpetaPredial</servlet-name>
         <servlet-class>cl.aiep.controller.GuardarCarpetaPredial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarDatosPredio</servlet-name>
+        <servlet-class>cl.aiep.controller.GuardarDatosPredio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IngresoPredio</servlet-name>
         <url-pattern>/IngresoPredio</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>GuardarCarpetaPredial</servlet-name>
         <url-pattern>/GuardarCarpetaPredial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarDatosPredio</servlet-name>
+        <url-pattern>/GuardarDatosPredio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
