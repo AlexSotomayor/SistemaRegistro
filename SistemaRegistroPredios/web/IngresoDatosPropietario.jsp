@@ -17,7 +17,7 @@
     </head>
     <body>
         <div>
-            <form action="GuardarPropietario" method="POST">
+            <form action="GuardarDatosPropietarios" method="POST">
           
               <%@include  file="MenuAdministrativo.jsp" %>
                 <table border="0" cellspacing="0" cellpadding="2" align="center">
@@ -81,11 +81,7 @@
                     </tr>
                     
                 </table>
-              
-     
             </form>
         </div>
-        
-       
     </body>
 </html>

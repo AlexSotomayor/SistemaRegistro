@@ -19,9 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Marta
+ * @author Alex
  */
-public class GuardarPropietario extends HttpServlet {
+public class GuardarDatosPropietarios extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class GuardarPropietario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GuardarPropietario</title>");            
+            out.println("<title>Servlet GuardarDatosPropietarios</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GuardarPropietario at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GuardarDatosPropietarios at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,26 +75,23 @@ public class GuardarPropietario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Rut          =   request.getParameter("Rut");
-        String Nombres      =     request.getParameter("Nombre");
-        String ApellidoPaterno  =     request.getParameter("ApellidoPaterno");
-        String ApellidoMaterno    =     request.getParameter("ApellidoMaterno");
-        String Direccion =     request.getParameter("Direccion");
-        String Telefono  =     request.getParameter("Telefono");
-        String CorreoElectronico      =     request.getParameter("Correo");
+        String rut                =     request.getParameter("Rut");
+        String nombres            =     request.getParameter("Nombre");
+        String apellidoPaterno    =     request.getParameter("ApellidoPaterno");
+        String apellidoMaterno    =     request.getParameter("ApellidoMaterno");
+        String direccion          =     request.getParameter("Direccion");
+        String telefono           =     request.getParameter("Telefono");
+        String correoElectronico  =     request.getParameter("Correo");
         
                 
-            HttpSession sesion = request.getSession();
-            String nivel;
-            nivel = sesion.getAttribute("Nivel").toString();
-        
+           
         conexion cnx = new conexion();
         boolean estado = false;
         
-        String query = "INSERT INTO Propietario"+
-                      "(Id_RutPropietario, Nombres, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, CorreoElectronico)"+ 
-                "values"+
-                  "('"+Rut+"','"+Nombres+"','"+ApellidoPaterno+"', '"+ApellidoMaterno+"', '"+Direccion+"', '"+Telefono+"', '"+CorreoElectronico+"','"+nivel+"')";
+        String query = "INSERT INTO Propietario "+
+                       "(Id_RutPropietario, Nombres, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, CorreoElectronico) "+ 
+                       "values "+
+                  "('"+rut+"','"+nombres+"','"+apellidoPaterno+"', '"+apellidoMaterno+"', '"+direccion+"', '"+telefono+"', '"+correoElectronico+"')";
                 
                 
                 
@@ -104,25 +101,10 @@ public class GuardarPropietario extends HttpServlet {
             estado =  cnx.guardarDatos(query);
             
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPropietario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarDatosPropietarios.class.getName()).log(Level.SEVERE, null, ex);
         } 
             response.sendRedirect("IngresoDatosPropietario.jsp");
-            
-            
-            
-            
     }
-  
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
 
     /**
      * Returns a short description of the servlet.

@@ -5,10 +5,6 @@
         <servlet-class>cl.aiep.controller.IngresoPredio</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GuardarPropietario</servlet-name>
-        <servlet-class>cl.aiep.controller.GuardarPropietario</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>GuardarPlanDeManejo</servlet-name>
         <servlet-class>cl.aiep.controller.GuardarPlanDeManejo</servlet-class>
     </servlet>
@@ -20,13 +16,13 @@
         <servlet-name>GuardarDatosPredio</servlet-name>
         <servlet-class>cl.aiep.controller.GuardarDatosPredio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarDatosPropietarios</servlet-name>
+        <servlet-class>cl.aiep.controller.GuardarDatosPropietarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IngresoPredio</servlet-name>
         <url-pattern>/IngresoPredio</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GuardarPropietario</servlet-name>
-        <url-pattern>/GuardarPropietario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GuardarPlanDeManejo</servlet-name>
@@ -39,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>GuardarDatosPredio</servlet-name>
         <url-pattern>/GuardarDatosPredio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarDatosPropietarios</servlet-name>
+        <url-pattern>/GuardarDatosPropietarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
