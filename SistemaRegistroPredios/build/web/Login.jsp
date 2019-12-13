@@ -59,13 +59,14 @@
             String contra = request.getParameter("txtPassword");
 
             HttpSession sesion = request.getSession();
-
+            
             switch (cnx.loguear(nombre, contra)) {
                 case 1:
                     sesion.setAttribute("user", nombre);
                     sesion.setAttribute("Tipo", "Administrador");
                     sesion.setAttribute("Nivel", "1");
                     response.sendRedirect("MenuAdministrador.jsp");
+                   
                     break;
 
                 case 2:

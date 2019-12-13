@@ -15,13 +15,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Marta
+ * @author Alex
  */
-public class GuardarPlanDeManejo extends HttpServlet {
+public class GuardarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +39,10 @@ public class GuardarPlanDeManejo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GuardarPlanDeManejo</title>");            
+            out.println("<title>Servlet GuardarUsuario</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GuardarPlanDeManejo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GuardarUsuario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,24 +74,28 @@ public class GuardarPlanDeManejo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Estudiotecnico  = request.getParameter("estudiotecnico");
-       
+        String nombre = request.getParameter("Nombre");
+        String rut    = request.getParameter("txtRut");
+        String clave  = request.getParameter("txtClave");
+        String nivel  = request.getParameter("txtNivel");
+        String tipo   = request.getParameter("txtTipo");
+
+        String query = "INSERT INTO Usuario "
+                + "(Nombre, Rut , Clave, Nivel, Tipo) "
+                + "values "
+                + "('" + nombre + "','" + rut + "', '" + clave + "', '" + nivel + "', '" + tipo + "')";
+
         conexion cnx = new conexion();
-        boolean plandeM = false;
-        
-        String query = "INSERT INTO tipoplandemanejo "+ 
-                       "(EstudioTecnico) "+ 
-                       "VALUES "+ 
-                       "('"+Estudiotecnico+"')";              
+        boolean estado = false;
+
         System.out.println(query);
         try {
             cnx.getConnection();
-            plandeM =  cnx.guardarDatos(query);
+            estado = cnx.guardarDatos(query);
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarPlanDeManejo.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-            response.sendRedirect("IngresoPlanDeManejo.jsp");
-               
+            Logger.getLogger(GuardarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        response.sendRedirect("CrearUsuarios.jsp");
     }
 
     /**

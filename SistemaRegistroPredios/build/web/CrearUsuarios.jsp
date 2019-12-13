@@ -14,7 +14,7 @@
     </head>
     <body>
         <div>
-            <form action="IngresoPredio" method="POST">   
+            <form action="GuardarUsuario" method="POST">   
                 <%@include  file="MenuAdministrador.jsp" %>
 
                 <table border="0" cellspacing="0" cellpadding="2" align="center">

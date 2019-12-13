@@ -32,7 +32,7 @@ public class conexion {
         PreparedStatement pst;
         ResultSet rs;
         int Nivel = 0;
-        String sql = "select Nivel from Usuario where Nombre='" + us + "' and Clave= '" + pass + "'";
+        String sql = "select * from Usuario where Nombre='" + us + "' and Clave= '" + pass + "'";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             this.conexion = (Connection) DriverManager.getConnection(

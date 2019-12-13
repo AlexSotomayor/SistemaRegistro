@@ -70,9 +70,13 @@
                         <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>    </td>
                 </tr>
 
+                <td colspan="2" align="center">
+                    <a href="IngresoPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Ingresar Nuevo Predio</button></a>
+                </td>  
+
                 <tr> 
                     <td colspan="2" align="center">
-                        <a href="CarpetaPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a></td>
+                        <a href="MenuAdministrativo.jsp"><button class="btn btn-primary" type="button"  onclick="submit()">Salir</button></td></a>
                 </tr>
 
             </table>              

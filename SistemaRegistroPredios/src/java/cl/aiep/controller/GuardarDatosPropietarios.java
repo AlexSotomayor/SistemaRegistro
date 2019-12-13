@@ -82,18 +82,14 @@ public class GuardarDatosPropietarios extends HttpServlet {
         String direccion          =     request.getParameter("Direccion");
         String telefono           =     request.getParameter("Telefono");
         String correoElectronico  =     request.getParameter("Correo");
-        
-                
-           
+         
         conexion cnx = new conexion();
         boolean estado = false;
         
         String query = "INSERT INTO Propietario "+
                        "(Id_RutPropietario, Nombres, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, CorreoElectronico) "+ 
                        "values "+
-                  "('"+rut+"','"+nombres+"','"+apellidoPaterno+"', '"+apellidoMaterno+"', '"+direccion+"', '"+telefono+"', '"+correoElectronico+"')";
-                
-                
+                    "('"+rut+"','"+nombres+"','"+apellidoPaterno+"', '"+apellidoMaterno+"', '"+direccion+"', '"+telefono+"', '"+correoElectronico+"')";
                 
         System.out.println(query);
         try {
