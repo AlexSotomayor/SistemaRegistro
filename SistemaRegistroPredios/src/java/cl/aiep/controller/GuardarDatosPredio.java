@@ -5,6 +5,7 @@
  */
 package cl.aiep.controller;
 
+import cl.aiep.acceso.AccesoPredio;
 import cl.aiep.conexion.conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -75,6 +76,10 @@ public class GuardarDatosPredio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+         HttpSession sesion = request.getSession();
+         
+         
         String nombre       =     request.getParameter("Nombre");
         String superficie   =     request.getParameter("Superficie");
         String rolavaluo    =     request.getParameter("rolAvaluo");
@@ -82,24 +87,17 @@ public class GuardarDatosPredio extends HttpServlet {
         String coordenadae  =     request.getParameter("coordenadaUTME");
         String comuna       =     request.getParameter("Comuna");
         
-        HttpSession sesion = request.getSession();
-            String nivel;
-            nivel = sesion.getAttribute("Nivel").toString();
        
-        conexion cnx = new conexion();
-        boolean estado = false;
+            String user = sesion.getAttribute("user").toString();
+            
+        AccesoPredio aPredio = new AccesoPredio();
         
-        String query = "INSERT INTO Predio "+
-                       "(Nombre, SuperficieTotal , Rol_Avaluo, COORDUTMN, COORDUTME, Id_Comuna, Id_Usuario) "+
-                       "values "+
-                       "('"+nombre+"','"+superficie+"', '"+rolavaluo+"', '"+coordenadan+"', '"+coordenadae+"', '"+comuna+"', '"+nivel+"')";
-        System.out.println(query);
         try {
-            cnx.getConnection();
-            estado =  cnx.guardarDatos(query);
-        } catch (SQLException ex) {
+            aPredio.guardarPredio( nombre, superficie, rolavaluo, coordenadae, coordenadan, comuna, user );
+                    } catch (SQLException ex) {
             Logger.getLogger(GuardarDatosPredio.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
+ 
             response.sendRedirect("IngresoPredial.jsp");
     }
 

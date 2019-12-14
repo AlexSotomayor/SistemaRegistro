@@ -25,7 +25,7 @@
                         <p>
                             <%out.print(session.getAttribute("user"));%> 
                             - 
-                            <%out.print(session.getAttribute("Nivel"));%>  
+                            <%out.print(session.getAttribute("nombre"));%>  
                         </p>
                     </li> 
                     <div class="dropdown-divider"></div>

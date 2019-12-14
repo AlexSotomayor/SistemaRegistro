@@ -4,8 +4,7 @@
 
 
 <%
-    conexion cnx = new conexion();
-    cnx.getConnection();
+    conexion cnx = new conexion(); 
 %>
 <!DOCTYPE html>
 <html>
@@ -44,19 +43,17 @@
                         <label class="radio-inline"><input type="radio" name="optradio">Denegada</label>
                     </td> 
                 </tr>
-
                 <tr>
                     <td><div class="tituloChico">Número Carpeta Predial:</div></td>
                     <td> 
                         <input type="text" name="NumeroCarpeta" class="form-control" style="width: 200px" autocomplete="off">    </td>
                 </tr>
-
                 <tr valign="top"> 
                     <td>Estudio Técnico:</td>
                     <td>
                         <select name="estudiotecnico" style="width: 250px" class="form-control">
                             <option  value='-1'>Seleccione tipo de estudio</option>
-                            <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_TipoPlanDeManejo,EstudioTecnico FROM TipoPlanDeManejo");
+                            <%ResultSet puntero = cnx.consultar("SELECT Id_TipoPlanDeManejo,EstudioTecnico FROM TipoPlanDeManejo");
                                 while (puntero.next()) {
                                     out.println("<option value='" + puntero.getInt(1) + "'>" + puntero.getString(2) + "</option>");
                                 }
@@ -64,16 +61,13 @@
                         </select>
                     </td>
                 </tr>
-
                 <tr> 
                     <td colspan="2" align="center">
                         <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>    </td>
                 </tr>
-
                 <td colspan="2" align="center">
                     <a href="IngresoPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Ingresar Nuevo Predio</button></a>
                 </td>  
-
                 <tr> 
                     <td colspan="2" align="center">
                         <a href="MenuAdministrativo.jsp"><button class="btn btn-primary" type="button"  onclick="submit()">Salir</button></td></a>

@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import cl.aiep.acceso.AccesoUsuario;
 import cl.aiep.conexion.conexion;
 
 public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -42,6 +43,7 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -94,36 +96,41 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("    ");
 
-        conexion cnx = new conexion();
+        AccesoUsuario aUser = new AccesoUsuario();
+        
         if (request.getParameter("btnIngresar") != null) {
+            
             String nombre = request.getParameter("txtUsuario");
             String contra = request.getParameter("txtPassword");
 
             HttpSession sesion = request.getSession();
-
-            switch (cnx.loguear(nombre, contra)) {
-                case 1:
-                    sesion.setAttribute("user", nombre);
-                    sesion.setAttribute("Nivel", "1");
-                    response.sendRedirect("Administrador.jsp");
-                    break;
-
-                case 2:
-                    sesion.setAttribute("user", nombre);
-                    sesion.setAttribute("Nivel", "2");
-                    response.sendRedirect("Menu.jsp");
-                    break;
-
-                case 3:
-                    sesion.setAttribute("user", nombre);
-                    sesion.setAttribute("Nivel", "3");
-                    response.sendRedirect("ConsultasPredio.jsp");
-                    break;
-
-                default:
-                    out.write("Usuario no existe, o contraseña inválida");
-                    break;
+            
+            String[] usuario = new String[5];
+            usuario = aUser.loguear(nombre, contra);
+            
+            if ( usuario != null){//si encontro algo
+                    sesion.setAttribute("user", usuario[0]);//id
+                    sesion.setAttribute("nombre", usuario[1]);//nombre
+                    sesion.setAttribute("Tipo", usuario[4] );//Tipo 
+                    
+                    int nivel =Integer.parseInt( usuario[3]);
+                    
+                    switch (nivel) {
+                       case 1:
+                           response.sendRedirect("MenuAdministrador.jsp"); 
+                           break; 
+                       case 2: 
+                           response.sendRedirect("MenuAdministrativo.jsp");
+                           break; 
+                       case 3: 
+                           response.sendRedirect("MenuConsultasPredio.jsp");
+                           break; 
+                       default:
+                           response.sendRedirect("Login.jsp");
+                           break;
+                    }   
             }
+
         }
         
         if(request.getParameter("cerrar")!=null){

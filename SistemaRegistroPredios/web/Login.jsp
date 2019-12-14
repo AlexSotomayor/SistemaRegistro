@@ -4,6 +4,7 @@
     Author     : Alex
 --%>
 
+<%@page import="cl.aiep.acceso.AccesoUsuario"%>
 <%@page import="cl.aiep.conexion.conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
@@ -53,40 +54,41 @@
     </form>   
 
     <%
-        conexion cnx = new conexion();
+        AccesoUsuario aUser = new AccesoUsuario();
+        
         if (request.getParameter("btnIngresar") != null) {
+            
             String nombre = request.getParameter("txtUsuario");
             String contra = request.getParameter("txtPassword");
 
             HttpSession sesion = request.getSession();
             
-            switch (cnx.loguear(nombre, contra)) {
-                case 1:
-                    sesion.setAttribute("user", nombre);
-                    sesion.setAttribute("Tipo", "Administrador");
-                    sesion.setAttribute("Nivel", "1");
-                    response.sendRedirect("MenuAdministrador.jsp");
-                   
-                    break;
-
-                case 2:
-                    sesion.setAttribute("user", nombre);
-                    sesion.setAttribute("Tipo", "Administrativo");
-                    sesion.setAttribute("Nivel", "2");
-                    response.sendRedirect("MenuAdministrativo.jsp");
-                    break;
-
-                case 3:
-                    sesion.setAttribute("user", nombre);
-                    sesion.setAttribute("Tipo", "Usuario Externo");
-                    sesion.setAttribute("Nivel", "3");
-                    response.sendRedirect("MenuConsultasPredio.jsp");
-                    break;
-
-                default:
-                    out.write("Usuario no existe, o contraseña inválida");
-                    break;
+            String[] usuario = new String[5];
+            usuario = aUser.loguear(nombre, contra);
+            
+            if ( usuario != null){//si encontro algo
+                    sesion.setAttribute("user", usuario[0]);//id
+                    sesion.setAttribute("nombre", usuario[1]);//nombre
+                    sesion.setAttribute("Tipo", usuario[4] );//Tipo 
+                    
+                    int nivel =Integer.parseInt( usuario[3]);
+                    
+                    switch (nivel) {
+                       case 1:
+                           response.sendRedirect("MenuAdministrador.jsp"); 
+                           break; 
+                       case 2: 
+                           response.sendRedirect("MenuAdministrativo.jsp");
+                           break; 
+                       case 3: 
+                           response.sendRedirect("MenuConsultasPredio.jsp");
+                           break; 
+                       default:
+                           response.sendRedirect("Login.jsp");
+                           break;
+                    }   
             }
+
         }
         
         if(request.getParameter("cerrar")!=null){

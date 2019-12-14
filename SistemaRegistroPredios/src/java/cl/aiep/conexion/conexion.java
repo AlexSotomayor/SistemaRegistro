@@ -15,6 +15,9 @@ public class conexion {
         private int port;
         private String url;
         private Connection conexion;
+        private PreparedStatement instancia;
+        private ResultSet puntero;
+        
 
     public conexion() {
         this.clave = "123456";
@@ -27,32 +30,7 @@ public class conexion {
         this.url += this.base + "?characterEncoding=latin1";
     }
 
-    public int loguear(String us, String pass) {
-        Connection conn;
-        PreparedStatement pst;
-        ResultSet rs;
-        int Nivel = 0;
-        String sql = "select * from Usuario where Nombre='" + us + "' and Clave= '" + pass + "'";
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            this.conexion = (Connection) DriverManager.getConnection(
-                    this.url,
-                    this.user,
-                    this.clave
-            );
-            pst = conexion.prepareStatement(sql);
-            rs = pst.executeQuery();
-            while (rs.next()) {
-                Nivel = rs.getInt(1);
-            }
-            conexion.close();
-            System.out.println(" exito al conectarse ");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Error de conexion : " + e.getMessage());
-        }
-        return Nivel;
-    }
-        public void getConnection() throws SQLException{
+     private void getConnection() throws SQLException{
         this.conexion = null; 
         
        try{
@@ -65,27 +43,25 @@ public class conexion {
            System.out.println(" exito al conectarse ");
        }catch(ClassNotFoundException ex){
             System.out.println("Error de conexion : " + ex.getMessage());
-       } 
+       }  
     }
+     
+     public ResultSet consultar(String sql) throws SQLException{
+         this.getConnection();
+         this.puntero = this.conexion.createStatement().executeQuery(sql);
+         return this.puntero;
+     }
 
-    public ResultSet cargarCombo(String query) throws SQLException {
-        return this.conexion.createStatement().executeQuery(query);
+    protected void cerrarConexion() throws SQLException{
+            this.puntero.close();
+            this.instancia.close();
+            this.conexion.close();
+     } 
+    
+    protected boolean guardar(String query) throws SQLException {
+        this.getConnection();
+        boolean estado =  this.conexion.createStatement().execute(query);
+        this.conexion.close();
+        return estado;
     }
-
-    public ResultSet obtenerPersona(String query) throws SQLException {
-        return this.conexion.createStatement().executeQuery(query);
-    }
-
-    public boolean guardarDatos(String query) throws SQLException {
-        return this.conexion.createStatement().execute(query);
-    }
-
-    public boolean tabajarDatos(String query) throws SQLException {
-        return this.conexion.createStatement().execute(query);
-    }
-
-    public ResultSet EntregaDatos(String query) throws SQLException {
-        return this.conexion.createStatement().executeQuery(query);
-    }
-
 }

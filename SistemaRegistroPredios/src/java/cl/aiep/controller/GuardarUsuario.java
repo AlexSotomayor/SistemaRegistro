@@ -5,6 +5,7 @@
  */
 package cl.aiep.controller;
 
+import cl.aiep.acceso.AccesoUsuario;
 import cl.aiep.conexion.conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -80,32 +81,14 @@ public class GuardarUsuario extends HttpServlet {
         String nivel  = request.getParameter("txtNivel");
         String tipo   = request.getParameter("txtTipo");
 
-        String query = "INSERT INTO Usuario "
-                + "(Nombre, Rut , Clave, Nivel, Tipo) "
-                + "values "
-                + "('" + nombre + "','" + rut + "', '" + clave + "', '" + nivel + "', '" + tipo + "')";
-
-        conexion cnx = new conexion();
-        boolean estado = false;
-
-        System.out.println(query);
+        AccesoUsuario aUsuario = new AccesoUsuario();
+        
         try {
-            cnx.getConnection();
-            estado = cnx.guardarDatos(query);
+            aUsuario.guardarUsuario( nombre, rut, clave, nivel, tipo);
         } catch (SQLException ex) {
             Logger.getLogger(GuardarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+          
         response.sendRedirect("CrearUsuarios.jsp");
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+      }  
 }

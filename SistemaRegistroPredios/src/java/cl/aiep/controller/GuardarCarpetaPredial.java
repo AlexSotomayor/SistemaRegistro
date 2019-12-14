@@ -5,6 +5,7 @@
  */
 package cl.aiep.controller;
 
+import cl.aiep.acceso.AccesoPredio;
 import cl.aiep.conexion.conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -84,39 +85,13 @@ public class GuardarCarpetaPredial extends HttpServlet {
         String EstudioTecnico    =     request.getParameter("estudiotecnico");
                 
         HttpSession sesion = request.getSession();
-            String nivel;
-            nivel = sesion.getAttribute("Nivel").toString();
-        
-        conexion cnx = new conexion();
-        boolean estado = false;
-        
-        String query = "INSERT INTO CarpetaPredial "+
-                       "(NumeroResolucion,FechaResolucion, Infraccion,`EstadoResolucion, NumeroCarpeta, Id_Predio, Id_TipoPlanDeManejo, Id_Usuario) "+
-                       "VALUES "+
-                "('"+numeroresolucion+"','"+fecharesolucion +"', '"+infraccion +"', '"+estadoresulucion+"', '"+numerocarpeta+"','"+EstudioTecnico+"', '"+nivel+"')";
-                           
-                
-       System.out.println(query);
+        String user = sesion.getAttribute("user").toString();
+        AccesoPredio aPredio = new AccesoPredio();
         try {
-            cnx.getConnection();
-            estado =  cnx.guardarDatos(query);
+            aPredio.guardarAccesoPredial( numeroresolucion, fecharesolucion, infraccion, estadoresulucion, numerocarpeta, EstudioTecnico, user);
         } catch (SQLException ex) {
             Logger.getLogger(GuardarCarpetaPredial.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-            response.sendRedirect("IngresoCarpetaPredial.jsp");
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
         
     }
 

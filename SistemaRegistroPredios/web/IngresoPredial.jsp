@@ -5,8 +5,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    conexion cnx = new conexion();
-    cnx.getConnection();
+    conexion cnx = new conexion(); 
 %>
 <!DOCTYPE html>
 <html>
@@ -64,7 +63,7 @@
                             <td>
                                 <select name="Comuna" style="width: 250px" class="form-control">
                                     <option  value='-1'>-- Seleccione una comuna --</option>
-                                    <%ResultSet puntero = cnx.EntregaDatos("SELECT Id_Comuna,Nombre FROM Comuna");
+                                    <%ResultSet puntero = cnx.consultar("SELECT Id_Comuna,Nombre FROM Comuna");
                                         while (puntero.next()) {
                                             out.println("<option value='" + puntero.getInt(1) + "'>" + puntero.getString(2) + "</option>");
                                         }

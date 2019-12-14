@@ -5,6 +5,7 @@
  */
 package cl.aiep.controller;
 
+import cl.aiep.acceso.AccesoPropietario;
 import cl.aiep.conexion.conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -83,19 +84,10 @@ public class GuardarDatosPropietarios extends HttpServlet {
         String telefono           =     request.getParameter("Telefono");
         String correoElectronico  =     request.getParameter("Correo");
          
-        conexion cnx = new conexion();
-        boolean estado = false;
+        AccesoPropietario aPropietario = new AccesoPropietario();
         
-        String query = "INSERT INTO Propietario "+
-                       "(Id_RutPropietario, Nombres, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, CorreoElectronico) "+ 
-                       "values "+
-                    "('"+rut+"','"+nombres+"','"+apellidoPaterno+"', '"+apellidoMaterno+"', '"+direccion+"', '"+telefono+"', '"+correoElectronico+"')";
-                
-        System.out.println(query);
         try {
-            cnx.getConnection();
-            estado =  cnx.guardarDatos(query);
-            
+            aPropietario.guardarPropietario( rut, nombres, apellidoPaterno, apellidoMaterno, direccion, telefono, correoElectronico);
         } catch (SQLException ex) {
             Logger.getLogger(GuardarDatosPropietarios.class.getName()).log(Level.SEVERE, null, ex);
         } 
