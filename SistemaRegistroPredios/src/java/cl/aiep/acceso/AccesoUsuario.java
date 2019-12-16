@@ -41,5 +41,21 @@ public class AccesoUsuario extends conexion{
  
            this.guardar(query);
     }
-   
+    
+    public void editarUsuario(String id, String nombre, String rut, String nivel, String tipo) throws SQLException {
+        String query = "UPDATE Usuario "
+                + "SET Nombre ='" + nombre + "'"
+                + ", Rut ='" + rut + "'"
+                + ", Nivel ='" + nivel + "'"
+                + ", Tipo ='" + tipo + "'"
+                + "WHERE Id_Usuario ='" + id + "'"
+                ;
+ 
+           this.guardar(query);
+    }
+    
+    public void eliminarUsuario(String id) throws SQLException {
+        String query = "DELETE FROM Usuario WHERE Id_Usuario = '"+id+"'";
+        this.guardar(query);
+    }
 }
