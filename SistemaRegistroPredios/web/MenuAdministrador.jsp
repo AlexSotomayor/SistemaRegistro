@@ -51,7 +51,9 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Menú</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     
-                    <li><a href="CrearUsuarios.jsp" title=" "style="color: white">Ingreso Usuario</a></li>
+                   <li><a href="CrearUsuarios.jsp?status=False" title=" "style="color: white">Ingreso Usuario</a></li>
+                   <li><a href="ListarUsuarios.jsp" title=" "style="color: white">Lista de Usuarios</a></li>
+                   <li><a href="ListarPredios.jsp" title=" "style="color: white">Lista de Predios</a></li>
                    
                 </ul>
             </li>
