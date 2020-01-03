@@ -44,6 +44,7 @@ public class UpdateUsuario extends HttpServlet {
             out.println("<title>Servlet UpdateUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<h1>Usuario actualizado con éxito.</h1>");
             out.println("<a href='ListarUsuarios.jsp'>Regresar al listado</a>");
             out.println("</body>");
             out.println("</html>");
@@ -78,16 +79,15 @@ public class UpdateUsuario extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        String id = request.getParameter("id");
+        String id     = request.getParameter("id");
         String nombre = request.getParameter("Nombre");
         String rut    = request.getParameter("txtRut");
         String nivel  = request.getParameter("txtNivel");
-        String tipo   = request.getParameter("txtTipo");
 
         AccesoUsuario aUsuario = new AccesoUsuario();
         
         try {
-            aUsuario.editarUsuario( id, nombre, rut, nivel, tipo);
+            aUsuario.editarUsuario( id, nombre, rut, nivel);
         } catch (SQLException ex) {
             Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
