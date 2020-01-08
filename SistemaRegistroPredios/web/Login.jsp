@@ -73,7 +73,6 @@
                 sesion.setAttribute("Tipo", usuario[4]);//Tipo 
 
                 int nivel = Integer.parseInt( usuario[3] );
-
                 switch (nivel) {
                    case 1:
                        response.sendRedirect("MenuAdministrador.jsp"); 
@@ -84,14 +83,11 @@
                    case 3: 
                        response.sendRedirect("MenuConsultasPredio.jsp");
                        break; 
-                       
-                      
                    default:
                        response.sendRedirect("Login.jsp");
                        break;
                 }   
             }
-
         }
         
         if(request.getParameter("cerrar")!=null){

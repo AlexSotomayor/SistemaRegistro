@@ -30,7 +30,6 @@
                     ResultSet rs = cnx.consultar(usuarios);
                     
                     while(rs.next()){
-                   
                %>
             <tr>
                 <td class="text-center"><%= rs.getString(2)%></td>
@@ -49,10 +48,10 @@
                 <tr>
                     <td colspan="2" align="center">
                         <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>
+
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-
 </html>

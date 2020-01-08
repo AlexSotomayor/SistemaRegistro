@@ -74,7 +74,12 @@
 
                         <td colspan="2" align="center">
                             <button class="btn btn-primary" type="submit" onclick="submit()">Guardar</button> 
-                            <a href="IngresoDatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
+  
+                        </td>       
+
+                        <tr> 
+                            <td colspan="2" align="center">
+                                <a href="IngresoDatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
                         </tr>
                     </table>   
                 </form>        

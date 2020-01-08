@@ -1,27 +1,27 @@
-<%@page import="cl.aiep.conexion.conexion"%>
-<%@page import="cl.aiep.controller.GuardarDatosPredio"%>
+<%@page import="cl.aiep.conexion.conexion"%> 
+<%@page import="cl.aiep.controller.DeletePropietario"%> 
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Eliminar Propietario</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <title>Eliminar Propietario</title> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
         <%
             conexion cnx = new conexion();
-            String id = request.getParameter("id");
+            String id = request.getParameter("id"); 
             String users = "select * from Propietario where Id_RutPropietario ="+id;
             ResultSet rs = cnx.consultar(users);
             while (rs.next()) {
-                String nombre = rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4);
+                String nombre = rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4); 
         %>
         <form action="DeletePropietario" method="POST">
         <table border="0" cellspacing="0" cellpadding="2" align="center">
-            <tr>
-                <td>¿Seguro eliminar el Propietario " <%out.println(nombre);%>" ?</td>
+            <tr> 
+                <td>¿Seguro eliminar el Propietario " <%out.println(nombre);%>" ?</td>  
                     <input type="hidden" name="id" value="<%out.println(id);%>">
                     </tr>
                     <tr>

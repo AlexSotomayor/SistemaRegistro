@@ -19,7 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
+<<<<<<< HEAD
  * @author Marta
+=======
+ * @author Alex
+>>>>>>> 1af328bfbf2ae965d89fb7cf7994803d047df173
  */
 public class DeletePropietario extends HttpServlet {
 
@@ -77,20 +81,17 @@ public class DeletePropietario extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-          String id = request.getParameter("id");
-        
+          String id = request.getParameter("id"); 
         AccesoPropietario ePropietario = new AccesoPropietario();
         
         try {
             ePropietario.eliminarPropietario( id );
-            response.sendRedirect("ListarPropietarios.jsp");
+            response.sendRedirect("ListarPropietarios.jsp"); 
         } catch (SQLException ex) {
             Logger.getLogger(DeletePropietario.class.getName()).log(Level.SEVERE, null, ex);
         }
           
         response.sendRedirect("ListarPropietarios.jsp");
-        
-        
     }
 
     /**

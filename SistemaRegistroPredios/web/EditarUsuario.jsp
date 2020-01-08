@@ -45,7 +45,7 @@
                     <tr>
                         <td><div class="tituloChico">Nivel anterior: <%out.println(nivel);%></div></td>
                         <td> 
-                            <input type="text" name="txtNivel" class="form-control" style="width: 200px" value="<%out.println(nivel);%>" autocomplete="off">
+                            <input type="text" name="txtNivel" class="form-control" style="width: 200px" placeholder="<%out.println(nivel);%>" autocomplete="off">
                         </td>
                     </tr>
 

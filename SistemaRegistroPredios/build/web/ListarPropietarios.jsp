@@ -22,6 +22,7 @@
                 conexion cnx = new conexion();
             %>
             <table border="1" class="table table-bordered table-write">
+
                 <tr>
                     <td><div class="tituloChico">RUT</div></td>
                     <td><div class="tituloChico">NOMBRES</div></td>
@@ -31,37 +32,6 @@
                     <td><div class="tituloChico">TELEFONO</div></td>
                     <td><div class="tituloChico">CORREO ELECTRONICO</div></td>
                 </tr>
-                <%
-                    String usuarios = "SELECT * FROM VW_Vista_Propietario";
 
-                    ResultSet rs = cnx.consultar(usuarios);
-
-                    while (rs.next()) {
-
-
-                %>
-
-                <tr>
-                    <td class="text-center"><%= rs.getString(1)%></td>
-                    <td class="text-center"><%= rs.getString(2)%></td>
-                    <td class="text-center"><%= rs.getString(3)%></td>
-                    <td class="text-center"><%= rs.getString(4)%></td>
-                    <td class="text-center"><%= rs.getString(5)%></td>
-                    <td class="text-center"><%= rs.getString(6)%></td>
-                    <td class="text-center"><%= rs.getString(7)%></td>
-                    <td class="text-center">
-                        <a href="EditarPropietarios.jsp?id=<%= rs.getString(1)%>" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="EliminarPropietarios.jsp?id=<%= rs.getString(1)%>" class="btn btn-danger btn-sm">Eliminar</a>
-                    </td>    
-                </tr>       
-                <%}%>
-
-                <tr>
-                    <td colspan="2" align="center">
-                        <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>
-                    </td>
-                </tr>
-            </table>
-        </div>
     </body>
 </html>

@@ -47,4 +47,3 @@ public class AccesoPropietario extends conexion {
     } 
     
 }
-

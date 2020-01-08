@@ -32,6 +32,7 @@
         <servlet-name>DeletePropietario</servlet-name>
         <servlet-class>cl.aiep.controller.DeletePropietario</servlet-class>
     </servlet>
+<<<<<<< HEAD
     <servlet>
         <servlet-name>ValidarLogin</servlet-name>
         <servlet-class>cl.aiep.controller.ValidarLogin</servlet-class>
@@ -44,6 +45,8 @@
         <servlet-name>GuardarPropietariosAdministrador</servlet-name>
         <servlet-class>cl.aiep.controller.GuardarPropietariosAdministrador</servlet-class>
     </servlet>
+=======
+>>>>>>> 1af328bfbf2ae965d89fb7cf7994803d047df173
     <servlet-mapping>
         <servlet-name>IngresoPredio</servlet-name>
         <url-pattern>/IngresoPredio</url-pattern>
@@ -76,6 +79,7 @@
         <servlet-name>DeletePropietario</servlet-name>
         <url-pattern>/DeletePropietario</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>ValidarLogin</servlet-name>
         <url-pattern>/ValidarLogin</url-pattern>
@@ -88,6 +92,8 @@
         <servlet-name>GuardarPropietariosAdministrador</servlet-name>
         <url-pattern>/GuardarPropietariosAdministrador</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> 1af328bfbf2ae965d89fb7cf7994803d047df173
     <session-config>
         <session-timeout>
             30
