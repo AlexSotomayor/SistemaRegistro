@@ -78,7 +78,7 @@
 
                         <tr> 
                             <td colspan="2" align="center">
-                                <a href="DatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
+                                <a href="IngresoDatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
                         </tr>
                     </table>   
                 </form>        

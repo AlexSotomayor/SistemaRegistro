@@ -1,5 +1,5 @@
 <%@page import="cl.aiep.conexion.conexion"%>
-<%@page import="cl.aiep.controller.GuardarDatosPredio"%>
+<%@page import="cl.aiep.controller.UpdateUsuario"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
         <title>Listado de Usuarios</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    
         <div>   
             <%
                 conexion cnx = new conexion();
@@ -22,11 +22,9 @@
                     <td><div class="tituloChico">TIPO</div></td>
                 </tr>
                 <%
-                    String users = "select * from Usuario";
-                    String editar = "Editar";
-                    String eliminar = "Eliminar";
+                    String usuarios = "select * from Usuario";
                     
-                    ResultSet rs = cnx.consultar(users);
+                    ResultSet rs = cnx.consultar(usuarios);
                     
                     while(rs.next()){
                         out.println("<tr>");
@@ -39,8 +37,12 @@
                         out.println("</tr>");
                     }
                 %>
-                
+                <tr>
+                    <td colspan="2" align="center">
+                                <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>
+                    </td>
+                </tr>
             </table>
         </div>
-    </body>
+    
 </html>

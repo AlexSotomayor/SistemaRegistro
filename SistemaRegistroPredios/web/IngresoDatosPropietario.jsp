@@ -32,7 +32,8 @@
                     <tr>
                         <td><div class="tituloChico">Nombre:</div></td>
                         <td> 
-                            <input type="text" name="Nombre" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="Nombre" pattern="[a-zA-Z]" class="form-control" style="width: 200px" autocomplete="off">
+                        </td>
                     </tr>
                     
                     <tr>
@@ -67,12 +68,9 @@
                     
                     <tr> 
                         <td colspan="2" align="center">
-                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>    </td>
-                    </tr>
-                    
-                    <tr> 
-                        <td colspan="2" align="center">
-                            <a href="CarpetaPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a></td>
+                            <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>
+                            <a href="IngresoCarpetaPredial.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>
+                        </td>
                     </tr>
                     
                 </table>

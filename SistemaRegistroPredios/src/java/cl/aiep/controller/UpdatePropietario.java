@@ -5,7 +5,8 @@
  */
 package cl.aiep.controller;
 
-import cl.aiep.acceso.AccesoUsuario;
+
+import cl.aiep.acceso.AccesoPropietario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -21,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marta
  */
-@WebServlet(name = "UpdateUsuario", urlPatterns = {"/UpdateUsuario"})
-public class UpdateUsuario extends HttpServlet {
+@WebServlet(name = "UpdatePropietario", urlPatterns = {"/UpdatePropietario"})
+public class UpdatePropietario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,11 +42,10 @@ public class UpdateUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateUsuario</title>");            
+            out.println("<title>Servlet UpdatePropietario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Usuario actualizado con éxito.</h1>");
-            out.println("<a href='ListarUsuarios.jsp'>Regresar al listado</a>");
+            out.println("<h1>Servlet UpdatePropietario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,22 +79,31 @@ public class UpdateUsuario extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        String id     = request.getParameter("id");
-        String nombre = request.getParameter("Nombre");
-        String rut    = request.getParameter("txtRut");
-        String nivel  = request.getParameter("txtNivel");
+        String id_rut       = request.getParameter("Id_RutPropietario");
+        String nombres      = request.getParameter("Nombres");
+        String apellidoP    = request.getParameter("ApellidoPaterno");
+        String apellidoM    = request.getParameter("ApellidoMaterno");
+        String direccion    = request.getParameter("Direccion");
+        String telefono     = request.getParameter("Telefono");
+        String email        = request.getParameter("CorreoElectronico");
 
-        AccesoUsuario aUsuario = new AccesoUsuario();
+        AccesoPropietario aPropiet = new AccesoPropietario();
         
         try {
-            aUsuario.editarUsuario( id, nombre, rut, nivel);
+            aPropiet.editarPropietario(id_rut, nombres, apellidoP, apellidoM, direccion, telefono, email);
         } catch (SQLException ex) {
-            Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdatePredio.class.getName()).log(Level.SEVERE, null, ex);
         }
           
-        response.sendRedirect("ListarUsuarios.jsp");
-      }  
-    
+        response.sendRedirect("ListarPropietarios.jsp");
+        
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

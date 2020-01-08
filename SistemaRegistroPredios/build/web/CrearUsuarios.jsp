@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CrearUsuarios
-    Created on : 04-dic-2019, 19:49:22
-    Author     : Alex
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +8,10 @@
     </head>
     <body>
         <div>
-            <form action="GuardarUsuario" method="POST">   
+            <%
+                String estado = request.getParameter("status");
+            %>
+            <form name="formulario" action="GuardarUsuario" method="POST">   
                 <%@include  file="MenuAdministrador.jsp" %>
 
                 <table border="0" cellspacing="0" cellpadding="2" align="center">
@@ -23,24 +20,26 @@
                             <h3>Creación de Usuario</h3>
                         </td>
                     </tr>
-                    
+
                     <tr>
-                    <td><div class="">Nombre:</div></td>
-                    <td> 
-                        <input type="text" name="Nombre" class="form-control" style="width: 200px">
-                    </td>
+                        <td><div class="">Nombre:</div></td>
+                        <td> 
+                            <input type="text" name="Nombre" class="form-control" style="width: 200px">
+                        </td>
                     </tr>
-                    
+
                     <tr>
                         <td><div class="tituloChico">Rut:</div></td>
                         <td> 
-                            <input type="text" name="txtRut" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="txtRut" class="form-control" style="width: 200px" autocomplete="off"> 
+                        </td>
                     </tr>
 
                     <tr>
                         <td><div class="tituloChico">Clave:</div></td>
                         <td> 
-                            <input type="text" name="txtClave" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="txtClave" class="form-control" style="width: 200px" autocomplete="off">
+                        </td>
                     </tr>
 
                     <tr>
@@ -50,25 +49,53 @@
                         </td>
                     </tr>
 
+                    <td colspan="2" align="center">
+                        <button class="btn btn-primary" type="button" onclick="return validar();">Guardar</button>                     
+                        <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>
+                    </td>
+                    <%
+                        if (estado.equals("True")) {
+                    %>
                     <tr>
-                        <td><div class="tituloChico">Tipo:</div></td>
-                        <td> 
-                            <input type="text" name="txtTipo" class="form-control" style="width: 200px" autocomplete="off">
+                        <td colspan="2" align="center">
+                            <div class="alert alert-success" role="alert">
+                                Usuario ingresado.
+                            </div>
                         </td>
                     </tr>
+                    <%
+                        }
+                    %>
+                </table>
 
-                    <td colspan="2" align="center">
-                        <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
-                    </td>       
-
-
-                    <tr> 
-                        <td colspan="2" align="center">
-                            <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>    </td>
-                    </tr>
-                </table>   
             </form>        
 
         </div>
+        <script type="text/javascript">
+            function validar() {
+                return validar_nombre();
+               
+            }
+
+
+            function validar_nombre() {
+                var nombre = document.formulario.Nombre.value;
+                var valida = /^[a-z-A-Z]{1,20}$/;
+
+                if (nombre === "") {
+                    alert("Este campo es obligatorio, debe ingresar un nombre.");
+                    return false;
+
+                } else if (nombre.length > 20) {
+                    alert("Demasiados caracteres.");
+                    return false;
+                } else if (!valida.test(nombre)) {
+                    alert("Solo se permiten letras.");
+                    return false;
+                }
+
+            }
+
+        </script>
     </body>
 </html>

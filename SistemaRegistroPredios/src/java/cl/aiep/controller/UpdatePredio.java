@@ -5,14 +5,13 @@
  */
 package cl.aiep.controller;
 
-import cl.aiep.acceso.AccesoUsuario;
+import cl.aiep.acceso.AccesoPredio;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marta
  */
-@WebServlet(name = "UpdateUsuario", urlPatterns = {"/UpdateUsuario"})
-public class UpdateUsuario extends HttpServlet {
+public class UpdatePredio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,11 +39,10 @@ public class UpdateUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateUsuario</title>");            
+            out.println("<title>Servlet UpdatePredio</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Usuario actualizado con éxito.</h1>");
-            out.println("<a href='ListarUsuarios.jsp'>Regresar al listado</a>");
+            out.println("<a href='ListarPredios.jsp'>Regresar al listado</a>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,24 +74,32 @@ public class UpdateUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+             processRequest(request, response);
         
-        String id     = request.getParameter("id");
-        String nombre = request.getParameter("Nombre");
-        String rut    = request.getParameter("txtRut");
-        String nivel  = request.getParameter("txtNivel");
+        String id          = request.getParameter("id");
+        String nombre      = request.getParameter("Nombre");
+        String superficie  = request.getParameter("Superficie");
+        String Rolavaluo   = request.getParameter("rolAvaluo");
+        String coordenadaN = request.getParameter("coordenadaUTMN");
+        String coordenadaE = request.getParameter("coordenadaUTME");
+        String comuna      = request.getParameter("Comuna");
 
-        AccesoUsuario aUsuario = new AccesoUsuario();
+        AccesoPredio aPredio = new AccesoPredio();
         
         try {
-            aUsuario.editarUsuario( id, nombre, rut, nivel);
+            aPredio.editarPredio(id, nombre, superficie, Rolavaluo, coordenadaN, coordenadaE, comuna);
         } catch (SQLException ex) {
-            Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdatePredio.class.getName()).log(Level.SEVERE, null, ex);
         }
           
-        response.sendRedirect("ListarUsuarios.jsp");
-      }  
-    
+        response.sendRedirect("ListarPredios.jsp");
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

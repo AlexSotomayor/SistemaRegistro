@@ -1,13 +1,8 @@
-<%-- 
-    Document   : IngresoConsulta
-    Created on : 03-dic-2019, 16:06:46
-    Author     : Marta
---%>
-
+<%@page import="cl.aiep.acceso.AccesoUsuario"%>
 <%@page import="cl.aiep.conexion.conexion"%>
+
 <%
     conexion cnx = new conexion();
-    cnx.getConnection();
 %>
 
 <%@page import="java.sql.ResultSet"%>
@@ -62,7 +57,7 @@
                                 <td>
                                     <select name="Comuna" style="width: 250px" class="form-control">
                                         <option  value='-1'>-- Seleccione una comuna --</option>
-                                        <%ResultSet comuna = cnx.EntregaDatos("SELECT Id_Comuna,Nombre FROM Comuna");
+                                        <%ResultSet comuna = cnx.consultar("SELECT Id_Comuna,Nombre FROM Comuna");
                                             while (comuna.next()) {
                                                 out.println("<option value='" + comuna.getInt(1) + "'>" + comuna.getString(2) + "</option>");
                                             }

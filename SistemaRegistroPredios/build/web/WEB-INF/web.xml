@@ -20,6 +20,18 @@
         <servlet-name>GuardarUsuario</servlet-name>
         <servlet-class>cl.aiep.controller.GuardarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePredio</servlet-name>
+        <servlet-class>cl.aiep.controller.UpdatePredio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePredio</servlet-name>
+        <servlet-class>cl.aiep.controller.DeletePredio</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeletePropietario</servlet-name>
+        <servlet-class>cl.aiep.controller.DeletePropietario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IngresoPredio</servlet-name>
         <url-pattern>/IngresoPredio</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>GuardarUsuario</servlet-name>
         <url-pattern>/GuardarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePredio</servlet-name>
+        <url-pattern>/UpdatePredio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePredio</servlet-name>
+        <url-pattern>/DeletePredio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeletePropietario</servlet-name>
+        <url-pattern>/DeletePropietario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

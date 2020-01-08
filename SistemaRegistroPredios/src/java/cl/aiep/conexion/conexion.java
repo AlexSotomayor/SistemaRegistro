@@ -58,10 +58,16 @@ public class conexion {
             this.conexion.close();
      } 
     
-    protected boolean guardar(String query) throws SQLException {
+    public boolean guardar(String query) throws SQLException {
         this.getConnection();
         boolean estado =  this.conexion.createStatement().execute(query);
         this.conexion.close();
         return estado;
+    }
+    
+    public void actualizar(String query) throws SQLException {
+        this.getConnection();
+        int estado = this.conexion.createStatement().executeUpdate(query);
+        this.conexion.close();
     }
 }

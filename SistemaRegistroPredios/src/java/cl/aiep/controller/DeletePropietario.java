@@ -5,24 +5,23 @@
  */
 package cl.aiep.controller;
 
-import cl.aiep.acceso.AccesoUsuario;
+
+import cl.aiep.acceso.AccesoPropietario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Marta
+ * @author Alex
  */
-@WebServlet(name = "UpdateUsuario", urlPatterns = {"/UpdateUsuario"})
-public class UpdateUsuario extends HttpServlet {
+public class DeletePropietario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,11 +40,10 @@ public class UpdateUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UpdateUsuario</title>");            
+            out.println("<title>Servlet DeletePropietario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Usuario actualizado con éxito.</h1>");
-            out.println("<a href='ListarUsuarios.jsp'>Regresar al listado</a>");
+            out.println("<h1>Servlet DeletePropietario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,24 +75,26 @@ public class UpdateUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+          processRequest(request, response);
         
-        String id     = request.getParameter("id");
-        String nombre = request.getParameter("Nombre");
-        String rut    = request.getParameter("txtRut");
-        String nivel  = request.getParameter("txtNivel");
-
-        AccesoUsuario aUsuario = new AccesoUsuario();
+        String id = request.getParameter("id");
+        
+        AccesoPropietario ePropietario = new AccesoPropietario();
         
         try {
-            aUsuario.editarUsuario( id, nombre, rut, nivel);
+            ePropietario.eliminarPropietario( id );
         } catch (SQLException ex) {
-            Logger.getLogger(UpdateUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeletePropietario.class.getName()).log(Level.SEVERE, null, ex);
         }
           
-        response.sendRedirect("ListarUsuarios.jsp");
-      }  
-    
+        response.sendRedirect("ListarPropietarios.jsp");
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

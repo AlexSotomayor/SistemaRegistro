@@ -21,7 +21,6 @@
                     String nombre = rs1.getString(2);
                     String rut = rs1.getString(3);
                     String nivel = rs1.getString(5);
-                    String tipo = rs1.getString(6);
             %>
             <table border="0" cellspacing="0" cellpadding="2" align="center">
                     <tr> 
@@ -33,37 +32,25 @@
                     <tr>
                     <td><div class="tituloChico">Nombre anterior: <%out.println(nombre);%></div></td>
                     <td> 
-                        <input type="text" name="Nombre" class="form-control" style="width: 200px">
+                        <input type="text" name="Nombre" class="form-control" style="width: 200px" value="<%out.println(nombre);%>">
                     </td>
                     </tr>
                     
                     <tr>
                         <td><div class="tituloChico">Rut anterior: <%out.println(rut);%></div></td>
                         <td> 
-                            <input type="text" name="txtRut" class="form-control" style="width: 200px" autocomplete="off">    </td>
+                            <input type="text" name="txtRut" class="form-control" style="width: 200px" value="<%out.println(rut);%>" autocomplete="off">    </td>
                     </tr>
                     
                     <tr>
                         <td><div class="tituloChico">Nivel anterior: <%out.println(nivel);%></div></td>
                         <td> 
-                            <input type="text" name="txtNivel" class="form-control" style="width: 200px" autocomplete="off">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><div class="tituloChico">Tipo anterior: <%out.println(tipo);%></div></td>
-                        <td> 
-                            <input type="text" name="txtTipo" class="form-control" style="width: 200px" autocomplete="off">
+                            <input type="text" name="txtNivel" class="form-control" style="width: 200px" placeholder="<%out.println(nivel);%>" autocomplete="off">
                         </td>
                     </tr>
 
                     <td colspan="2" align="center">
                         <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
-                    </td>       
-
-
-                    <tr> 
-                        <td colspan="2" align="center">
                             <a href="ListarUsuarios.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Listado</button></a>    </td>
                     </tr>
                 </table>
