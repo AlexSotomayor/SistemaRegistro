@@ -37,4 +37,23 @@ public class AccesoPredio  extends conexion{
     
     }
     
+     public void editarPredio(String id, String nombre, String superficie, String rolavaluo, String coordenadan, String coordenadae, String comuna ) throws SQLException {
+        
+        String query = "UPDATE Predio "
+                + "SET Nombre = '" + nombre + "'"
+                + ", SuperficieTotal = '" + superficie + "'"
+                + ", Rol_Avaluo = '" + rolavaluo + "'"
+                + ", COORDUTMN = '" + coordenadan + "'"
+                + ", COORDUTME = '" + coordenadae + "'"
+                + ", Id_Comuna = '" + comuna + "'"
+                + " WHERE Id_Predio = '" + id + "'"
+                ;
+                System.out.println(query);
+           this.actualizar(query);
+    }
+    
+      public void eliminarPredio(String id) throws SQLException {
+        String query = "DELETE FROM Predio WHERE Id_Predio = "+id;
+        this.actualizar(query);
+    }
 }

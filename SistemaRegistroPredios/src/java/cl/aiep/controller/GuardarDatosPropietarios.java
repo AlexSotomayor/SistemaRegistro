@@ -89,7 +89,7 @@ public class GuardarDatosPropietarios extends HttpServlet {
         try {
             aPropietario.guardarPropietario( rut, nombres, apellidoPaterno, apellidoMaterno, direccion, telefono, correoElectronico);
         } catch (SQLException ex) {
-            Logger.getLogger(GuardarDatosPropietarios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardarPropietariosAdministrador.class.getName()).log(Level.SEVERE, null, ex);
         } 
             response.sendRedirect("IngresoDatosPropietario.jsp");
     }

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : MenuAdministrador
-    Created on : 05-dic-2019, 19:01:20
-    Author     : Alex
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -51,7 +47,12 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Menú</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     
-                    <li><a href="CrearUsuarios.jsp" title=" "style="color: white">Ingreso Usuario</a></li>
+                   <li><a href="CrearUsuarios.jsp?status=False" title=" "style="color: white">Ingreso Usuario</a></li>
+                   <li><a href="ListarUsuarios.jsp" title=" "style="color: white">Lista de Usuarios</a></li>
+                   <li><a href="ListarPredios.jsp" title=" "style="color: white">Lista de Predios</a></li>
+                   <li><a href="ListarPropietarios.jsp" title=" "style="color: white">Lista de Propietarios</a></li>
+                   <li><a href="IngresoPredioAdministrador.jsp" title=" "style="color: white">Ingreso Predio</a></li>
+                   <li><a href="IngresoPropietariosAdministrador.jsp" title=" "style="color: white">Ingreso Propietario</a></li>
                    
                 </ul>
             </li>

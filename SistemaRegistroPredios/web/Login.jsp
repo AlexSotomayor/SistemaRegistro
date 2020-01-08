@@ -65,28 +65,31 @@
             
             String[] usuario = new String[5];
             usuario = aUser.loguear(nombre, contra);
+            System.out.println("Ingreso datos = "+usuario);
             
-            if ( usuario != null){//si encontro algo
-                    sesion.setAttribute("user", usuario[0]);//id
-                    sesion.setAttribute("nombre", usuario[1]);//nombre
-                    sesion.setAttribute("Tipo", usuario[4] );//Tipo 
-                    
-                    int nivel =Integer.parseInt( usuario[3]);
-                    
-                    switch (nivel) {
-                       case 1:
-                           response.sendRedirect("MenuAdministrador.jsp"); 
-                           break; 
-                       case 2: 
-                           response.sendRedirect("MenuAdministrativo.jsp");
-                           break; 
-                       case 3: 
-                           response.sendRedirect("MenuConsultasPredio.jsp");
-                           break; 
-                       default:
-                           response.sendRedirect("Login.jsp");
-                           break;
-                    }   
+            if ( usuario != null ) {//si encontro algo
+                sesion.setAttribute("user", usuario[0]);//id
+                sesion.setAttribute("nombre", usuario[1]);//nombre
+                sesion.setAttribute("Tipo", usuario[4]);//Tipo 
+
+                int nivel = Integer.parseInt( usuario[3] );
+
+                switch (nivel) {
+                   case 1:
+                       response.sendRedirect("MenuAdministrador.jsp"); 
+                       break; 
+                   case 2: 
+                       response.sendRedirect("MenuAdministrativo.jsp");
+                       break; 
+                   case 3: 
+                       response.sendRedirect("MenuConsultasPredio.jsp");
+                       break; 
+                       
+                      
+                   default:
+                       response.sendRedirect("Login.jsp");
+                       break;
+                }   
             }
 
         }

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CrearUsuarios
-    Created on : 04-dic-2019, 19:49:22
-    Author     : Alex
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +8,9 @@
     </head>
     <body>
         <div>
+            <%
+                String estado = request.getParameter("status");
+            %>
             <form action="GuardarUsuario" method="POST">   
                 <%@include  file="MenuAdministrador.jsp" %>
 
@@ -50,25 +47,51 @@
                         </td>
                     </tr>
 
+                    <td colspan="2" align="center">
+                        <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button>                     
+                        <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>
+                    </td>
+                    
+                    <%
+                    if (estado.equals("True")) {
+                    %>
                     <tr>
-                        <td><div class="tituloChico">Tipo:</div></td>
-                        <td> 
-                            <input type="text" name="txtTipo" class="form-control" style="width: 200px" autocomplete="off">
+                        <td colspan="2" align="center">
+                            <div class="alert alert-success" role="alert">
+                                Usuario ingresado.
+                            </div>
                         </td>
                     </tr>
-
-                    <td colspan="2" align="center">
-                        <button class="btn btn-primary" type="button" onclick="submit()">Guardar</button> 
-                    </td>       
-
-
-                    <tr> 
+                <%
+                    }
+                    if (estado.equals("Error")) {
+                %>
+                    <tr>
                         <td colspan="2" align="center">
-                            <a href="MenuAdministrador.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Volver al Menu</button></a>    </td>
+                            <div class="alert alert-danger" role="alert">
+                                Usuario ya existe.
+                            </div>
+                        </td>
                     </tr>
-                </table>   
-            </form>        
-
+                <%
+                    }
+                    if (estado.equals("Verified")) {
+                %>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <div class="alert alert-warning" role="alert">
+                                Usuario no está registrado.
+                            </div>
+                        </td>
+                    </tr>
+                <%
+                    }
+                %>    
+                </table>
+                <br>
+            </form>
+          
+                
         </div>
     </body>
 </html>

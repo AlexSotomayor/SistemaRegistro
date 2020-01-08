@@ -17,7 +17,7 @@
         <div> 
             <form action="GuardarDatosPredio" method="post"> 
                 <%@include  file="MenuAdministrativo.jsp" %>
-                <form action="GuardarPredio" method="POST"> 
+                
 
                     <table border="0" cellspacing="0" cellpadding="2" align="center">
                         <tr> 
@@ -74,11 +74,7 @@
 
                         <td colspan="2" align="center">
                             <button class="btn btn-primary" type="submit" onclick="submit()">Guardar</button> 
-                        </td>       
-
-                        <tr> 
-                            <td colspan="2" align="center">
-                                <a href="DatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
+                            <a href="IngresoDatosPropietario.jsp"><button class="btn btn-primary" type="button" onclick="submit()">Continuar</button></a>    </td>
                         </tr>
                     </table>   
                 </form>        

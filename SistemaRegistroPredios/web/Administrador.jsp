@@ -42,7 +42,7 @@
           <h1>Sesión Administrador</h1>
                 <ul id="menu">
                     <li><a href="CrearUsuarios.jsp"  title="">Ingreso Usuarios </a></li>
-                    <li><a href=""  title=""></a></li>
+                    <li><a href="ListarUsuarios.jsp"  title="">Lista de Usuarios</a></li>
                     
                 </ul>
             </div>

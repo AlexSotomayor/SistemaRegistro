@@ -79,16 +79,15 @@ public class GuardarUsuario extends HttpServlet {
         String rut    = request.getParameter("txtRut");
         String clave  = request.getParameter("txtClave");
         String nivel  = request.getParameter("txtNivel");
-        String tipo   = request.getParameter("txtTipo");
 
         AccesoUsuario aUsuario = new AccesoUsuario();
         
         try {
-            aUsuario.guardarUsuario( nombre, rut, clave, nivel, tipo);
+            aUsuario.guardarUsuario(nombre, rut, clave, nivel);
         } catch (SQLException ex) {
             Logger.getLogger(GuardarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
           
-        response.sendRedirect("CrearUsuarios.jsp");
+        response.sendRedirect("CrearUsuarios.jsp?status=True");
       }  
 }
